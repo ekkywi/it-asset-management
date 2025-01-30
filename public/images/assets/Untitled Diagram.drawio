@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.10">
+  <diagram name="Page-1" id="bPNPue9tZoXWeQTiBpyn">
+    <mxGraphModel dx="2607" dy="1305" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iUVFP37_j5qjtaH43RIt-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1" source="iUVFP37_j5qjtaH43RIt-3" target="iUVFP37_j5qjtaH43RIt-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="72" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-26" value="WAN 192.168.5.10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-19">
+          <mxGeometry x="0.5672" y="-1" relative="1" as="geometry">
+            <mxPoint x="4" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-3" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/internet_cloud.svg;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="63.49" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="iUVFP37_j5qjtaH43RIt-12" target="iUVFP37_j5qjtaH43RIt-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-27" value="DMZ 172.26.254.1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-18">
+          <mxGeometry x="-0.6449" relative="1" as="geometry">
+            <mxPoint y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1" source="iUVFP37_j5qjtaH43RIt-12" target="iUVFP37_j5qjtaH43RIt-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-29" value="Port 1 172.17.17.1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-21">
+          <mxGeometry x="-0.7783" relative="1" as="geometry">
+            <mxPoint x="34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-32" value="WAN 172.17.17.2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-21">
+          <mxGeometry x="0.6294" y="-2" relative="1" as="geometry">
+            <mxPoint x="-12" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-12" value="Firewall DMZ" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="270" y="160" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" edge="1" parent="1" target="iUVFP37_j5qjtaH43RIt-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="556.04" y="190.000303030303" as="sourcePoint" />
+            <mxPoint x="540" y="390" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="540" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-31" value="Port 1 Key Management 192.168.100.1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-24">
+          <mxGeometry x="-0.6094" relative="1" as="geometry">
+            <mxPoint y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-13" value="Firewall Produksi" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="546.0699999999999" y="160" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-17" value="Network DMZ" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="190" y="360" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-15" value="Server SFTP&lt;div&gt;172.26.254.10&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="222.9" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-16" value="Server Update&lt;div&gt;172.26.254.11&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="320" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-20" value="Server Proxy&lt;div&gt;172.26.254.2&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="440" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-23" value="Server HSM&lt;div&gt;172.26.100.12&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="530" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-38" value="Network Server" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="630" y="360" width="630" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-33" value="Server Active Directory&lt;div&gt;192.168.99.2&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="690" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-34" value="Server Perso&lt;div&gt;192.168.99.12&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="800" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-35" value="Server Central Log&lt;div&gt;192.168.99.3&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-36" value="Database Server Oracle&lt;div&gt;192.168.99.8&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="910" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-37" value="Database Server Postgre&lt;div&gt;192.168.99.9&lt;/div&gt;" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.tower_server;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="390" width="30.59" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="iUVFP37_j5qjtaH43RIt-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="586.0699999999999" y="190.000303030303" as="sourcePoint" />
+            <mxPoint x="945" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="945" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-41" value="Port Server 192.168.99.1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-39">
+          <mxGeometry x="-0.8872" y="-2" relative="1" as="geometry">
+            <mxPoint x="43" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-45" value="Network Produksi" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;" vertex="1" parent="1">
+          <mxGeometry x="1080.59" y="40" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-48" value="Mesin Produksi&lt;div&gt;192.168.101.10&lt;/div&gt;" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Personal_Computer_with_Server.svg;" vertex="1" parent="1">
+          <mxGeometry x="1115.59" y="60" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.021;entryY=0.491;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="iUVFP37_j5qjtaH43RIt-13" target="iUVFP37_j5qjtaH43RIt-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-50" value="Port Produksi 192.168.101.1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="iUVFP37_j5qjtaH43RIt-49">
+          <mxGeometry x="0.6041" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iUVFP37_j5qjtaH43RIt-51" value="&lt;div&gt;Keterangan :&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 1. Server SFTP digunakan sebagai server update data yang berada di Network DMZ hanya dapat diakses dari Server Perso yang berada di Network Server&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 2. Server Windows Update digunakan sebagai server untuk update sistem operasi yang berada di Network DMZ hanya dapat diakses dari Network Server dan Network Produksi&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 3. Server Proxy digunakan sebagai akses untuk Update Server mendapatkan update hanya dapat diakses dari Network Server&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 4. Server Active Directory digunakan sebagai manajemen dan kontrol user yang berada di Network Server hanya dapat diakses dari Network Produksi&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 5. Server Perso digunakan untuk kegiatan produksi yang berada di Network Server hanya dapat diakses dari Network Produksi&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 6. Server Database Oracle digunakan untuk kegiatan produksi yang berada di Network Server hanya dapat diakses dari Network Produksi&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 7. Server Database Postgre digunakan untuk kegiatan produksi yang berada di Network Server hanya dapat diakses dari Network Produksi&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; 8. Server Central Log digunakan sebagai pusat log server – server yang berada di Network Server hanya dapat diakses dari Firewall DMZ, Firewall Produksi, Network DMZ (Server SFTP dan Server Windows Update), Network Produksi (Server Active Directory, Server Perso, Server Database Oracle, dan Server Database Postgre), dan Proxy Server&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="999.41" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
