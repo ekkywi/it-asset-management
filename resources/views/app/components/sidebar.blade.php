@@ -32,54 +32,27 @@
             </li>
 
             {{-- Menu Hardware --}}
-            <li class="dropdown {{ Request::is("itam/hardware/*") ? "active" : "" }}">
-                <a class="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-computer"></i> <span>Hardware</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is("itam/hardware/komputer") ? "active" : "" }}"><a class="nav-link" href="#">Komputer</a></li>
-                    <li class="{{ Request::is("itam/hardware/laptop") ? "active" : "" }}"><a class="nav-link" href="#">Laptop</a></li>
-                    <li class="{{ Request::is("itam/hardware/monitor") ? "active" : "" }}"><a class="nav-link" href="#">Monitor</a></li>
-                    <li class="{{ Request::is("itam/hardware/printer") ? "active" : "" }}"><a class="nav-link" href="#">Printer</a></li>
-                    <li class="{{ Request::is("itam/hardware/scanner") ? "active" : "" }}"><a class="nav-link" href="#">Scanner</a></li>
-                    <li class="{{ Request::is("itam/hardware/toner") ? "active" : "" }}"><a class="nav-link" href="#">Toner</a></li>
-                </ul>
+            <li class="dropdown {{ Request::is("hardware") ? "active" : "" }}">
+                <a class="nav-link" href="#"><i class="fas fa-computer"></i> <span>Hardware</span></a>
             </li>
 
             {{-- Menu Komponen --}}
-            <li class="dropdown {{ Request::is("itam/komponen/*") ? "active" : "" }} ">
-                <a class="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-memory"></i> <span>Komponen</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is("itam/komponen/processor") ? "active" : "" }}"><a class="nav-link" href="#">Processor</a></li>
-                    <li class="{{ Request::is("itam/komponen/ram") ? "active" : "" }}"><a class="nav-link" href="#">RAM</a></li>
-                    <li class="{{ Request::is("itam/komponen/hardisk") ? "active" : "" }}"><a class="nav-link" href="#">Hardisk</a></li>
-                    <li class="{{ Request::is("itam/komponen/ssd") ? "active" : "" }}"><a class="nav-link" href="#">SSD</a></li>
-                    <li class="{{ Request::is("itam/komponen/vga") ? "active" : "" }}"><a class="nav-link" href="#">VGA</a></li>
-                    <li class="{{ Request::is("itam/komponen/powersupply") ? "active" : "" }}"><a class="nav-link" href="#">Power Supply</a></li>
-                </ul>
+            <li class="dropdown {{ Request::is("komponen") ? "active" : "" }} ">
+                <a class="nav-link" href="#"><i class="fas fa-memory"></i> <span>Komponen</span></a>
             </li>
 
             {{-- Menu Akseoris --}}
-            <li {{ Request::is("itam/aksesoris/*") ? "active" : "" }} class="dropdown">
-                <a class="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-keyboard"></i> <span>Aksesoris</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is("itam/aksesoris/keyboard") ? "active" : "" }}"><a class="nav-link" href="#">Keyboard</a></li>
-                    <li class="{{ Request::is("itam/aksesoris/mouse") ? "active" : "" }}"><a class="nav-link" href="#">Mouse</a></li>
-                    <li class="{{ Request::is("itam/aksesoris/speaker") ? "active" : "" }}"><a class="nav-link" href="#">Speaker</a></li>
-                    <li class="{{ Request::is("itam/aksesoris/webcam") ? "active" : "" }}"><a class="nav-link" href="#">Webcam</a></li>
-                </ul>
+            <li {{ Request::is("aksesoris") ? "active" : "" }} class="dropdown">
+                <a class="nav-link" href="#"><i class="fas fa-keyboard"></i> <span>Aksesoris</span></a>
             </li>
 
             {{-- Menu Lisensi --}}
-            <li class="dropdown {{ Request::is("itam/lisensi/*") ? "active" : "" }}">
-                <a class="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-key"></i> <span>Lisensi</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is("itam/lisensi/semua-lisensi") ? "active" : "" }}"><a class="nav-link" href="#">Semua Lisensi</a></li>
-                    <li class="{{ Request::is("itam/lisensi/sistem-operasi") ? "active" : "" }}"><a class="nav-link" href="#">Sistem Operasi</a></li>
-                    <li class="{{ Request::is("itam/lisensi/aplikasi") ? "active" : "" }}"><a class="nav-link" href="#">Aplikasi</a></li>
-                </ul>
+            <li class="dropdown {{ Request::is("lisensi") ? "active" : "" }}">
+                <a class="nav-link" href="#"><i class="fas fa-key"></i> <span>Lisensi</span></a>
             </li>
 
             {{-- Menu Stok Aset --}}
-            <li class="{{ Request::is("itam/stok-aset") ? "active" : "" }}">
+            <li class="{{ Request::is("stok-aset") ? "active" : "" }}">
                 <a class="nav-link" href="#"><i class="fas fa-cubes"></i> <span>Stok Aset</span></a>
             </li>
 
@@ -97,15 +70,24 @@
 
             <li class="menu-header">Pengaturan</li>
 
-            {{-- Menu Pengaturan --}}
-            <li class="dropdown {{ Request::is("itam/pengaturan/*") ? "active" : "" }}">
-                <a class ="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-cog"></i> <span>Pengaturan</span></a>
+            {{-- Menu Informasi Aset --}}
+            <li class="dropdown {{ Request::is("informasi-aset/*") ? "active" : "" }}">
+                <a class ="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-info"></i> <span>Informasi Aset</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is("itam/pengaturan/status-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("itam/pengaturan/status-aset") }}">Status Aset</a></li>
-                    <li class="{{ Request::is("itam/pengaturan/kategori-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("itam/pengaturan/kategori-aset") }}">Kategori Aset</a></li>
-                    <li class="{{ Request::is("itam/pengaturan/merk-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("itam/pengaturan/merk-aset") }}">Merk Aset</a></li>
-                    <li class="{{ Request::is("itam/pengaturan/model-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("itam/pengaturan/model-aset") }}">Model Aset</a></li>
-                    <li class="{{ Request::is("itam/pengatura/supplier-aset") ? "active" : "" }}"><a class="nav-link" href="#">Supplier Aset</a></li>
+                    <li class="{{ Request::is("informasi-aset/kategori-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("informasi-aset/kategori-aset") }}">Kategori Aset</a></li>
+                    <li class="{{ Request::is("informasi-aset/merek-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("informasi-aset/merek-aset") }}">Merek Aset</a></li>
+                    <li class="{{ Request::is("informasi-aset/model-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("informasi-aset/model-aset") }}">Model Aset</a></li>
+                    <li class="{{ Request::is("informasi-aset/supplier-aset") ? "active" : "" }}"><a class="nav-link" href="{{ url("informasi-aset/supplier-aset") }}">Supplier Aset</a></li>
+                </ul>
+            </li>
+
+            {{-- Menu Pengguna --}}
+            <li class="dropdown {{ Request::is("pengguna") ? "active" : "" }}">
+                <a class ="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-users"></i> <span>Pengguna</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is("pengguna/daftar-pengguna") ? "active" : "" }}"><a class="nav-link" href="#">Daftar Pengguna</a></li>
+                    <li class="{{ Request::is("pengguna/bagian") ? "active" : "" }}"><a class="nav-link" href="#">Bagian</a></li>
+                    <li class="{{ Request::is("pengguna/jabatan") ? "active" : "" }}"><a class="nav-link" href="#">Jabatan</a></li>
                 </ul>
             </li>
 
@@ -121,8 +103,8 @@
             </li>
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                <a class="btn btn-primary btn-lg btn-block btn-icon-split" href="{{ url("dashboard") }}">
-                    <i class="fas fa-rocket"></i> Kembali ke E-Office
+                <a class="btn btn-danger btn-lg btn-block btn-icon-split" href="{{ url("dashboard") }}">
+                    <i class="fas fa-power-off"></i> Logout
                 </a>
             </div>
     </aside>

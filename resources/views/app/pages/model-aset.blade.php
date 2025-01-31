@@ -1,4 +1,4 @@
-@extends("aset.layouts.app")
+@extends("app.layouts.app")
 
 @section("title")
     Model Aset {!! "&mdash;" !!} ITAM
@@ -10,7 +10,7 @@
             <h1>Model Aset</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ url("itam/dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-cog"></i> Pengaturan</div>
+                <div class="breadcrumb-item"><i class="fas fa-info"></i> Informasi Aset</div>
                 <div class="breadcrumb-item active"><i class="fas fa-spa"></i> Model Aset</div>
             </div>
         </div>
