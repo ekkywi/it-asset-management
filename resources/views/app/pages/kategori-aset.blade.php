@@ -16,8 +16,8 @@
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">Jenis Merek Aset</h2>
-            <p class="section-lead">Daftar merek aset</p>
+            <h2 class="section-title">Kategori Aset</h2>
+            <p class="section-lead">Daftar kategori aset</p>
 
             <div class="row mb-3">
                 <div class="col-md-4">

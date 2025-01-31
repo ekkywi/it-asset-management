@@ -82,10 +82,10 @@
             </li>
 
             {{-- Menu Pengguna --}}
-            <li class="dropdown {{ Request::is("pengguna") ? "active" : "" }}">
+            <li class="dropdown {{ Request::is("pengguna/*") ? "active" : "" }}">
                 <a class ="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-users"></i> <span>Pengguna</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is("pengguna/daftar-pengguna") ? "active" : "" }}"><a class="nav-link" href="#">Daftar Pengguna</a></li>
+                    <li class="{{ Request::is("pengguna/daftar-pengguna") ? "active" : "" }}"><a class="nav-link" href="{{ url("pengguna/daftar-pengguna") }}">Daftar Pengguna</a></li>
                     <li class="{{ Request::is("pengguna/bagian") ? "active" : "" }}"><a class="nav-link" href="#">Bagian</a></li>
                     <li class="{{ Request::is("pengguna/jabatan") ? "active" : "" }}"><a class="nav-link" href="#">Jabatan</a></li>
                 </ul>
