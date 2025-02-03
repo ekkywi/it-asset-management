@@ -1,23 +1,22 @@
 @extends("app.layouts.app")
 
 @section("title")
-    Supplier Aset {!! "&mdash;" !!} ITAM
+    Bagian {!! "&mdash;" !!} ITAM
 @endsection
 
 @section("content")
     <section class="section">
         <div class="section-header">
-            <h1>Daftar Supplier Aset</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ url("itam/dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-info"></i> Informasi Aset</div>
-                <div class="breadcrumb-item active"><i class="fas fa-boxes-packing"></i> Supplier Aset</div>
+                <div class="breadcrumb-item"><i class="fas fa-users"></i> Pengguna</div>
+                <div class="breadcrumb-item active"><i class="fas fa-sitemap"></i> Bagian</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">Supplier Aset</h2>
-            <p class="section-lead">Daftar supplier aset</p>
+            <h1 class="section-title">Bagian</h1>
+            <p class="section-lead">Daftar bagian dari pengguna aplikasi</p>
 
             <div class="row mb-3">
                 <div class="col-md-4">
@@ -37,17 +36,19 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nama Supplier</th>
-                            <th>Alamat</th>
-                            <th>Kontak</th>
+                            <th>Nama Bagian</th>
+                            <th>Tag Bagian</th>
+                            <th>Keterangan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Supplier 1</td>
-                            <td>Jl. Supplier 1</td>
-                            <td>Supplier 1</td>
+                            <td>Information Teknologi</td>
+                            <td>
+                                <span class="badge badge-primary">IT</span>
+                            </td>
+                            <td>Bagian IT</td>
                             <td><a class="btn btn-primary" href="#">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                         </tr>
                     </tbody>
