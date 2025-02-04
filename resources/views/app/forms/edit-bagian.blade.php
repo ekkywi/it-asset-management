@@ -46,6 +46,10 @@
                             <input class="form-control inputtags" name="tag_bagian" required type="text" value="{{ $bagian->tag_bagian }}">
                         </div>
                         <div class="form-group">
+                            <label>Warna Tag Bagian</label>
+                            <input class="form-control" name="warna_bagian" required type="color" value="{{ $bagian->warna_bagian }}">
+                        </div>
+                        <div class="form-group">
                             <label>Keterangan</label>
                             <textarea class="form-control custom-textarea" name="keterangan" rows="10">{{ $bagian->keterangan }}</textarea>
                         </div>

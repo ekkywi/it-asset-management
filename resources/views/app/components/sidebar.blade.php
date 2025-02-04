@@ -21,7 +21,8 @@
             <li class="dropdown {{ Request::is("pengguna/*") ? "active" : "" }}">
                 <a class ="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-users"></i> <span>Pengguna</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is("pengguna/bagian") ? "active" : "" }}"><a class="nav-link" href="{{ url("pengguna/bagian") }}">Bagian</a></li>
+                    <li class="{{ Request::is("pengguna/bagian/") ? "active" : "" }}"><a class="nav-link" href="{{ url("pengguna/bagian") }}">Bagian</a></li>
+                    <li class="{{ Request::is("pengguna/jabatan") || Request::is("pengguna/jabatan/*") ? "active" : "" }}"><a class="nav-link" href="{{ url("pengguna/jabatan") }}">Jabatan</a></li>
                 </ul>
             </li>
 

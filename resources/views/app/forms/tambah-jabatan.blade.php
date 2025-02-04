@@ -10,18 +10,18 @@
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ url("itam/dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
                 <div class="breadcrumb-item"><i class="fas fa-users"></i> Pengguna</div>
-                <div class="breadcrumb-item"><a href="{{ url("pengguna/bagian") }}"><i class="fas fa-sitemap"></i> Bagian</a></div>
-                <div class="breadcrumb-item active"><i class="fas fa-plus"></i> Tambah Data Bagian</div>
+                <div class="breadcrumb-item"><a href="{{ url("pengguna/jabatan") }}"><i class="fas fa-briefcase"></i> Jabatan</a></div>
+                <div class="breadcrumb-item active"><i class="fas fa-plus"></i> Tambah Data Jabatan</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h1 class="section-title">Tambah Data Bagian</h1>
-            <p class="section-lead">Form penambahan data bagian</p>
+            <h1 class="section-title">Tambah Data Jabatan</h1>
+            <p class="section-lead">Form penambahan data jabatan</p>
 
             <div class="card custom-card">
                 <div class="card-header">
-                    <h4>Informasi Bagian</h4>
+                    <h4>Informasi Jabatan</h4>
                 </div>
                 <div class="card-body">
 
@@ -35,19 +35,19 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("pengguna.simpan-bagian") }}" method="POST">
+                    <form action="{{ route("pengguna.simpan-jabatan") }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label>Nama Bagian</label>
-                            <input class="form-control" name="nama_bagian" type="text">
+                            <label>Nama Jabatan</label>
+                            <input class="form-control" name="nama_jabatan" type="text">
                         </div>
                         <div class="form-group">
-                            <label>Tag Bagian</label>
-                            <input class="form-control inputtags" name="tag_bagian" type="text">
+                            <label>Tag Jabatan</label>
+                            <input class="form-control inputtags" name="tag_jabatan" type="text">
                         </div>
                         <div class="form-group">
-                            <label>Pilih Warna Tag Bagian</label>
-                            <input class="form-control" name="warna_bagian" type="color">
+                            <label>Pilih Warna Tag Jabatan</label>
+                            <input class="form-control" name="warna_jabatan" type="color">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <div class="text-right">
                                 <button class="btn btn-info" type="reset">Hapus</button>
-                                <button class="btn btn-danger" onclick="window.location='{{ url("pengguna/bagian") }}'" type="button">Batal</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ url("pengguna/jabatan") }}'" type="button">Batal</button>
                                 <button class="btn btn-primary">Simpan</button>
                             </div>
                         </div>

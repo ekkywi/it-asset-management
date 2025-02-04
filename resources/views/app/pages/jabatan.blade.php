@@ -1,22 +1,22 @@
 @extends("app.layouts.app")
 
 @section("title")
-    Bagian {!! "&mdash;" !!} ITAM
+    Jabatan {!! "&mdash;" !!} ITAM
 @endsection
 
 @section("content")
     <section class="section">
         <div class="section-header">
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item"><a href="{{ url("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
+                <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
                 <div class="breadcrumb-item"><i class="fas fa-users"></i> Pengguna</div>
-                <div class="breadcrumb-item active"><i class="fas fa-sitemap"></i> Bagian</div>
+                <div class="breadcrumb-item active"><i class="fas fa-briefcase"></i> Jabatan</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h1 class="section-title">Bagian</h1>
-            <p class="section-lead">Daftar bagian dari pengguna aplikasi</p>
+            <h1 class="section-title">Jabatan</h1>
+            <p class="section-lead">Daftar jabatan dari pengguna aplikasi</p>
 
             @if (session("success"))
                 <div class="alert alert-success alert-dismissible show fade">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ url("pengguna/tambah-bagian") }}">Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("pengguna.tambah-jabatan") }}">Tambah Data</a>
                 </div>
             </div>
 
@@ -58,27 +58,27 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nama Bagian</th>
-                            <th>Tag Bagian</th>
+                            <th>Nama Jabatan</th>
+                            <th>Tag Jabatan</th>
                             <th>Keterangan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($bagians as $bagian)
+                        @foreach ($jabatans as $jabatan)
                             <tr>
-                                <td>{{ $bagian->nama_bagian }}</td>
+                                <td>{{ $jabatan->nama_jabatan }}</td>
                                 <td>
-                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $bagian->warna_bagian }};">{{ $bagian->tag_bagian }}</span>
+                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $jabatan->warna_jabatan }};">{{ $jabatan->tag_jabatan }}</span>
                                 </td>
-                                <td>{{ $bagian->keterangan }}</td>
+                                <td>{{ $jabatan->keterangan }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ url("pengguna/edit-bagian/" . $bagian->id) }}">Edit</a>
-                                    <form action="{{ route("pengguna.hapus-bagian", $bagian->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="#">Edit</a>
+                                    <form action="{{ route("pengguna.hapus-jabatan", $jabatan->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger btnHapus" data-id="{{ $bagian->id }}" type="button">Hapus</button>
+                                        <button class="btn btn-danger btnHapus" data-id="{{ $jabatan->id }}" type="button">Hapus</button>
                                     </form>
                                 </td>
                             </tr>
@@ -126,7 +126,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `{{ url("pengguna/hapus-bagian") }}/${id}`;
+                    formHapus.action = `{{ route("pengguna.hapus-jabatan", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });
