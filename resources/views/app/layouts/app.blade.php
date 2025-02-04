@@ -10,7 +10,9 @@
     <link href="{{ asset("modules/fontawesome/css/all.min.css") }}" rel="stylesheet">
     <!-- Template CSS -->
     <link href="{{ asset("css/style.css") }}" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="{{ asset("css/components.css") }}" rel="stylesheet">
+    <link href="{{ asset("css/forms.css") }}" rel="stylesheet">
 </head>
 
 <body>
@@ -45,6 +47,7 @@
         <script src="{{ asset("js/scripts.js") }}"></script>
         <script src="{{ asset("js/custom.js") }}"></script>
     </div>
+    @yield("scripts")
 </body>
 
 </html>
