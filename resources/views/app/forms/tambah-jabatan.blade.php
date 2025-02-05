@@ -8,9 +8,9 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item"><a href="{{ url("itam/dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-users"></i> Pengguna</div>
-                <div class="breadcrumb-item"><a href="{{ url("pengguna/jabatan") }}"><i class="fas fa-briefcase"></i> Jabatan</a></div>
+                <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
+                <div class="breadcrumb-item"><i class="fas fa-building"></i> Oganisasi</div>
+                <div class="breadcrumb-item"><a href="{{ route("organisasi.jabatan") }}"><i class="fas fa-briefcase"></i> Jabatan</a></div>
                 <div class="breadcrumb-item active"><i class="fas fa-plus"></i> Tambah Data Jabatan</div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("pengguna.simpan-jabatan") }}" method="POST">
+                    <form action="{{ route("organisasi.simpan-jabatan") }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Nama Jabatan</label>
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <div class="text-right">
                                 <button class="btn btn-info" type="reset">Hapus</button>
-                                <button class="btn btn-danger" onclick="window.location='{{ url("pengguna/jabatan") }}'" type="button">Batal</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ route("organisasi.jabatan") }}'" type="button">Batal</button>
                                 <button class="btn btn-primary">Simpan</button>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 @extends("app.layouts.app")
 
 @section("title")
-    Bagian {!! "&mdash;" !!} ITAM
+    Pengguna {!! "&mdash;" !!} ITAM
 @endsection
 
 @section("content")
@@ -9,14 +9,13 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-building"></i> Organisasi</div>
-                <div class="breadcrumb-item active"><i class="fas fa-sitemap"></i> Bagian</div>
+                <div class="breadcrumb-item active"><i class="fas fa-users"></i> Pengguna</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h1 class="section-title">Bagian</h1>
-            <p class="section-lead">Daftar bagian dari pengguna aplikasi</p>
+            <h1 class="section-title">Pengguna</h1>
+            <p class="section-lead">Daftar pengguna aplikasi</p>
 
             @if (session("success"))
                 <div class="alert alert-success alert-dismissible show fade">
@@ -50,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ route("organisasi.tambah-bagian") }}">Tambah Data</a>
+                    <a class="btn btn-primary" href="#">Tambah Data</a>
                 </div>
             </div>
 
@@ -58,15 +57,17 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nama Bagian</th>
-                            <th>Tag Bagian</th>
-                            <th>Keterangan</th>
+                            <th>Nama</th>
+                            <th>Bagian</th>
+                            <th>Jabatan</th>
+                            <th>Role</th>
+                            <th>Status Aktivasi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($bagians as $bagian)
+                        {{-- @foreach ($bagians as $bagian)
                             <tr>
                                 <td>{{ $bagian->nama_bagian }}</td>
                                 <td>
@@ -82,7 +83,7 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
 
                     </tbody>
                 </table>
@@ -126,7 +127,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `{{ route("organisasi.hapus-bagian", "") }}/${id}`;
+                    formHapus.action = `#`;
                     $("#modalHapus").modal("show");
                 });
             });

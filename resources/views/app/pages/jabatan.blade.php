@@ -9,7 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-users"></i> Pengguna</div>
+                <div class="breadcrumb-item"><i class="fas fa-building"></i> Oganisasi</div>
                 <div class="breadcrumb-item active"><i class="fas fa-briefcase"></i> Jabatan</div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ route("pengguna.tambah-jabatan") }}">Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("organisasi.tambah-jabatan") }}">Tambah Data</a>
                 </div>
             </div>
 
@@ -74,8 +74,8 @@
                                 </td>
                                 <td>{{ $jabatan->keterangan }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="#">Edit</a>
-                                    <form action="{{ route("pengguna.hapus-jabatan", $jabatan->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-jabatan", $jabatan->id) }}">Edit</a>
+                                    <form action="{{ route("organisasi.hapus-jabatan", $jabatan->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
                                         <button class="btn btn-danger btnHapus" data-id="{{ $jabatan->id }}" type="button">Hapus</button>
@@ -126,7 +126,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `{{ route("pengguna.hapus-jabatan", "") }}/${id}`;
+                    formHapus.action = `{{ route("organisasi.hapus-jabatan", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });

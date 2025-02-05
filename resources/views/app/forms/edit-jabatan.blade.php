@@ -1,7 +1,7 @@
 @extends("app.layouts.app")
 
 @section("title")
-    Tambah Bagian {!! "&mdash;" !!} ITAM
+    Edit Jabatan {!! "&mdash;" !!} ITAM
 @endsection
 
 @section("content")
@@ -10,21 +10,20 @@
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
                 <div class="breadcrumb-item"><i class="fas fa-building"></i> Organisasi</div>
-                <div class="breadcrumb-item"><a href="{{ route("organisasi.bagian") }}"><i class="fas fa-sitemap"></i> Bagian</a></div>
-                <div class="breadcrumb-item active"><i class="fas fa-plus"></i> Tambah Data Bagian</div>
+                <div class="breadcrumb-item"><i class="fas fa-briefcase"></i> Jabatan</div>
+                <div class="breadcrumb-item active"><i class="fas fa-edit"></i> Edit Data Jabatan</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h1 class="section-title">Tambah Data Bagian</h1>
-            <p class="section-lead">Form penambahan data bagian</p>
+            <h1 class="section-title">Edit Data Jabatan</h1>
+            <p class="section-lead">Form pengeditan data jabatan</p>
 
             <div class="card custom-card">
                 <div class="card-header">
-                    <h4>Informasi Bagian</h4>
+                    <h4>Informasi Jabatan</h4>
                 </div>
                 <div class="card-body">
-
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -35,34 +34,35 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("organisasi.simpan-bagian") }}" method="POST">
+                    <form action="{{ route("organisasi.update-jabatan", $jabatan->id) }}" method="POST">
                         @csrf
+                        @method("PUT")
                         <div class="form-group">
-                            <label>Nama Bagian</label>
-                            <input class="form-control" name="nama_bagian" type="text">
+                            <label>Nama Jabatan</label>
+                            <input class="form-control" name="nama_jabatan" required type="text" value="{{ $jabatan->nama_jabatan }}">
                         </div>
                         <div class="form-group">
-                            <label>Tag Bagian</label>
-                            <input class="form-control inputtags" name="tag_bagian" type="text">
+                            <label>Tag Jabatan</label>
+                            <input class="form-control inputtags" name="tag_jabatan" required type="text" value="{{ $jabatan->tag_jabatan }}">
                         </div>
                         <div class="form-group">
-                            <label>Pilih Warna Tag Bagian</label>
-                            <input class="form-control" name="warna_bagian" type="color">
+                            <label>Warna Tag Jabatan</label>
+                            <input class="form-control" name="warna_jabatan" required type="color" value="{{ $jabatan->warna_jabatan }}">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control custom-textarea" name="keterangan" rows="10"></textarea>
+                            <textarea class="form-control custom-textarea" name="keterangan" rows="10">{{ $jabatan->keterangan }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="text-right">
-                                <button class="btn btn-info" type="reset">Hapus</button>
-                                <button class="btn btn-danger" onclick="window.location='{{ route("organisasi.bagian") }}'" type="button">Batal</button>
-                                <button class="btn btn-primary">Simpan</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ route("organisasi.jabatan") }}'" type="button">Batal</button>
+                                <button class="btn btn-primary" type="submit">Simpan</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
     </section>
 @endsection

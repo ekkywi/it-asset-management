@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ url("/dashboard") }}">IT Asset Management</a>
+            <a href="{{ route("dashboard") }}">IT Asset Management</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ url("/dashboard") }}">ITAM</a>
+            <a href="{{ route("dashboard") }}">ITAM</a>
         </div>
         <ul class="sidebar-menu">
 
@@ -12,17 +12,22 @@
 
             {{-- Menu Dashboard --}}
             <li class="dropdown {{ Request::is("dashboard") ? "active" : "" }}">
-                <a class="nav-link" href="{{ url("dashboard") }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a class="nav-link" href="{{ route("dashboard") }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
             <li class="menu-header">Pengaturan</li>
 
             {{-- Menu Pengguna --}}
-            <li class="dropdown {{ Request::is("pengguna/*") ? "active" : "" }}">
-                <a class ="nav-link has-dropdown" data-toggle="dropdown" href="#"><i class="fas fa-users"></i> <span>Pengguna</span></a>
+            <li class="dropdown {{ Request::is("pengguna") || Request::is("pengguna/*") ? "active" : "" }}">
+                <a class ="nav-link" href="{{ route("pengguna") }}"><i class="fas fa-users"></i> <span>Pengguna</span></a>
+            </li>
+
+            {{-- Menu Organisasi --}}
+            <li class="dropdown {{ Request::is("organisasi/*") ? "active" : "" }}">
+                <a class="nav-link has-dropdown" href="{{ url("organisasi") }}"><i class="fas fa-building"></i> <span>Organisasi</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is("pengguna/bagian/") ? "active" : "" }}"><a class="nav-link" href="{{ url("pengguna/bagian") }}">Bagian</a></li>
-                    <li class="{{ Request::is("pengguna/jabatan") || Request::is("pengguna/jabatan/*") ? "active" : "" }}"><a class="nav-link" href="{{ url("pengguna/jabatan") }}">Jabatan</a></li>
+                    <li class="{{ Request::is("organisasi/bagian") || Request::is("organisasi/bagian/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.bagian") }}">Bagian</a></li>
+                    <li class="{{ Request::is("organisasi/jabatan") || Request::is("organisasi/jabatan/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.jabatan") }}">Jabatan</a></li>
                 </ul>
             </li>
 
