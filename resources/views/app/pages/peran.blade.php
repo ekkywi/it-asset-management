@@ -1,7 +1,7 @@
 @extends("app.layouts.app")
 
 @section("title")
-    Pengguna {!! "&mdash;" !!} ITAM
+    Peran {!! "&mdash;" !!} ITAM
 @endsection
 
 @section("content")
@@ -9,13 +9,14 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item active"><i class="fas fa-users"></i> Pengguna</div>
+                <div class="breadcrumb-item"><i class="fas fa-building"></i> Oganisasi</div>
+                <div class="breadcrumb-item active"><i class="fas fa-people-group"></i> Peran</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h1 class="section-title">Pengguna</h1>
-            <p class="section-lead">Daftar pengguna aplikasi</p>
+            <h1 class="section-title">Peran</h1>
+            <p class="section-lead">Daftar peran dari pengguna aplikasi</p>
 
             @if (session("success"))
                 <div class="alert alert-success alert-dismissible show fade">
@@ -49,7 +50,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="#">Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("organisasi.tambah-peran") }}">Tambah Data</a>
                 </div>
             </div>
 
@@ -57,33 +58,31 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nama</th>
-                            <th>Bagian</th>
-                            <th>Jabatan</th>
-                            <th>Role</th>
-                            <th>Login Aplikasi</th>
+                            <th>Nama Peran</th>
+                            <th>Tag Peran</th>
+                            <th>Keterangan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        {{-- @foreach ($bagians as $bagian)
+                        @foreach ($perans as $peran)
                             <tr>
-                                <td>{{ $bagian->nama_bagian }}</td>
+                                <td>{{ $peran->nama_peran }}</td>
                                 <td>
-                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $bagian->warna_bagian }};">{{ $bagian->tag_bagian }}</span>
+                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $peran->warna_peran }};">{{ $peran->tag_peran }}</span>
                                 </td>
-                                <td>{{ $bagian->keterangan }}</td>
+                                <td>{{ $peran->keterangan }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-bagian", $bagian->id) }}">Edit</a>
-                                    <form action="{{ route("organisasi.hapus-bagian", $bagian->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-peran", $peran->id) }}">Edit</a>
+                                    <form action="{{ route("organisasi.hapus-peran", $peran->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger btnHapus" data-id="{{ $bagian->id }}" type="button">Hapus</button>
+                                        <button class="btn btn-danger btnHapus" data-id="{{ $peran->id }}" type="button">Hapus</button>
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
 
                     </tbody>
                 </table>
@@ -127,7 +126,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `#`;
+                    formHapus.action = `{{ route("organisasi.hapus-peran", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });

@@ -48,4 +48,14 @@ Route::prefix('organisasi')->group(function () {
         Route::get('/edit-jabatan/{jabatan}', [OrganisasiController::class, 'editJabatan'])->name('organisasi.edit-jabatan');
         Route::put('/update-jabatan/{jabatan}', [OrganisasiController::class, 'updateJabatan'])->name('organisasi.update-jabatan');
     });
+
+    // Menu Peran
+    Route::get('/peran', [OrganisasiController::class, 'peran'])->name('organisasi.peran');
+    Route::prefix('peran')->group(function () {
+        Route::get('/tambah-peran', [OrganisasiController::class, 'tambahPeran'])->name('organisasi.tambah-peran');
+        Route::post('/simpan-peran', [OrganisasiController::class, 'simpanPeran'])->name('organisasi.simpan-peran');
+        Route::delete('/hapus-peran/{peran}', [OrganisasiController::class, 'hapusPeran'])->name('organisasi.hapus-peran');
+        Route::get('/edit-peran/{peran}', [OrganisasiController::class, 'editPeran'])->name('organisasi.edit-peran');
+        Route::put('/update-peran/{peran}', [OrganisasiController::class, 'updatePeran'])->name('organisasi.update-peran');
+    });
 });

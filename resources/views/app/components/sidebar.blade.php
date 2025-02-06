@@ -28,6 +28,7 @@
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is("organisasi/bagian") || Request::is("organisasi/bagian/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.bagian") }}">Bagian</a></li>
                     <li class="{{ Request::is("organisasi/jabatan") || Request::is("organisasi/jabatan/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.jabatan") }}">Jabatan</a></li>
+                    <li class="{{ Request::is("organisasi/peran") || Request::is("organisasi/peran/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.peran") }}">Peran</a></li>
                 </ul>
             </li>
 

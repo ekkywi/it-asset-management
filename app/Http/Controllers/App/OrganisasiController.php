@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Models\Bagian;
 use App\Models\Jabatan;
+use App\Models\Peran;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -129,5 +130,62 @@ class OrganisasiController extends Controller
         $jabatan->update($request->all());
 
         return redirect()->route('organisasi.jabatan')->with('info', 'Data jabatan berhasil diperbaharui.');
+    }
+
+    // View Halaman Peran
+    public function peran()
+    {
+        $perans = Peran::all();
+
+        return view('app.pages.peran', compact('perans'));
+    }
+
+    // View Halaman Tambah Peran
+    public function tambahPeran()
+    {
+        return view('app.forms.tambah-peran');
+    }
+
+    // Simpan Data Peran
+    public function simpanPeran(Request $request)
+    {
+        $request->validate([
+            'nama_peran' => 'required|unique:peran|string|max:255',
+            'tag_peran' => 'required|unique:peran|string|max:255',
+            'warna_peran' => 'nullable|string|max:255',
+            'keterangan' => 'nullable|string|max:255',
+        ]);
+
+        Peran::create($request->all());
+
+        return redirect()->route('organisasi.peran')->with('success', 'Data peran berhasil ditambahkan.');
+    }
+
+    // Hapus Data Peran
+    public function hapusPeran(Peran $peran)
+    {
+        $peran->delete();
+
+        return redirect()->route('organisasi.peran')->with('success', 'Data peran berhasil dihapus.');
+    }
+
+    // View Form Edit Peran
+    public function editPeran(Peran $peran)
+    {
+        return view('app.forms.edit-peran', compact('peran'));
+    }
+
+    // Update Data Peran
+    public function updatePeran(Request $request, Peran $peran)
+    {
+        $request->validate([
+            'nama_peran' => 'required|string|max:255',
+            'tag_peran' => 'required|string|max:255',
+            'keterangan' => 'nullable|string|max:255',
+        ]);
+
+        $peran->update($request->all());
+
+        return redirect()->route('organisasi.peran')->with('info', 'Data peran berhasil diperbaharui.');
     }
 }
