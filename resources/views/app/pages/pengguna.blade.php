@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="#">Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("pengguna.tambah-pengguna") }}">Tambah Data</a>
                 </div>
             </div>
 
@@ -60,31 +60,25 @@
                             <th>Nama</th>
                             <th>Bagian</th>
                             <th>Jabatan</th>
-                            <th>Role</th>
+                            <th>Peran</th>
                             <th>Login Aplikasi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        {{-- @foreach ($bagians as $bagian)
+                        @foreach ($penggunas as $pengguna)
                             <tr>
-                                <td>{{ $bagian->nama_bagian }}</td>
+                                <td>{{ $pengguna->nama }}</td>
+                                <td>{{ $pengguna->bagian->nama_bagian }}</td>
+                                <td>{{ $pengguna->jabatan->nama_jabatan }}</td>
+                                <td>{{ $pengguna->peran->nama_peran }}</td>
+                                <td>{{ $pengguna->login_aplikasi ? "Ya" : "Tidak" }}</td>
                                 <td>
-                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $bagian->warna_bagian }};">{{ $bagian->tag_bagian }}</span>
-                                </td>
-                                <td>{{ $bagian->keterangan }}</td>
-                                <td>
-                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-bagian", $bagian->id) }}">Edit</a>
-                                    <form action="{{ route("organisasi.hapus-bagian", $bagian->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button class="btn btn-danger btnHapus" data-id="{{ $bagian->id }}" type="button">Hapus</button>
-                                    </form>
+                                    <a class="btn btn-info btn-sm" href="#"><i class="fas fa-edit"></i> Edit</a>
+                                    <button class="btn btn-danger btn-sm btnHapus" data-id="{{ $pengguna->id }}"><i class="fas fa-trash"></i> Hapus</button>
                                 </td>
                             </tr>
-                        @endforeach --}}
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>

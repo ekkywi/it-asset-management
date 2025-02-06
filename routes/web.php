@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\App\DashboardController;
 use App\Http\Controllers\App\PenggunaController;
 use App\Http\Controllers\App\OrganisasiController;
@@ -20,11 +21,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Halaman Login
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+// Halaman Dashboard
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 // Menu Pengguna
 Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna');
-
+Route::prefix('pengguna')->group(function () {
+    Route::get('/tambah-pengguna', [PenggunaController::class, 'tambahPengguna'])->name('pengguna.tambah-pengguna');
+    Route::post('/simpan-pengguna', [PenggunaController::class, 'simpanPengguna'])->name('pengguna.simpan-pengguna');
+});
 
 // Menu Organisasi
 Route::prefix('organisasi')->group(function () {

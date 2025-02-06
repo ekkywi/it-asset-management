@@ -17,7 +17,6 @@ class OrganisasiController extends Controller
     {
         $bagians = Bagian::all();
 
-
         return view('app.pages.bagian', compact('bagians'));
     }
 
