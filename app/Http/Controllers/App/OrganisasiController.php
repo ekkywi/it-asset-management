@@ -8,7 +8,9 @@ use App\Models\Peran;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
+use Monolog\Handler\IFTTTHandler;
 
 class OrganisasiController extends Controller
 {
@@ -47,6 +49,10 @@ class OrganisasiController extends Controller
     // Hapus Data Bagian
     public function hapusBagian(Bagian $bagian)
     {
+        if (Pengguna::where('bagian_id', $bagian->id)->exists()) {
+            return redirect()->route('organisasi.bagian')->with('error', 'Data bagian tidak bisa dihapus karena masih digunakan oleh pengguna.');
+        }
+
         $bagian->delete();
 
         return redirect()->route('organisasi.bagian')->with('success', 'Data bagian berhasil dihapus.');
@@ -106,6 +112,10 @@ class OrganisasiController extends Controller
     // Hapus Data Jabatan
     public function hapusJabatan(Jabatan $jabatan)
     {
+        if (Pengguna::where('jabatan_id', $jabatan->id)->exists()) {
+            return redirect()->route('organisasi.jabatan')->with('error', 'Data jabatan tidak bisa dihapus karena masih digunakan oleh pengguna.');
+        }
+
         $jabatan->delete();
 
         return redirect()->route('organisasi.jabatan')->with('success', 'Data jabatan berhasil dihapus.');
@@ -163,6 +173,10 @@ class OrganisasiController extends Controller
     // Hapus Data Peran
     public function hapusPeran(Peran $peran)
     {
+        if (Pengguna::where('peran_id', $peran->id)->exists()) {
+            return redirect()->route('organisasi.peran')->with('error', 'Data peran tidak bisa dihapus karena masih digunakan oleh pengguna.');
+        }
+
         $peran->delete();
 
         return redirect()->route('organisasi.peran')->with('success', 'Data peran berhasil dihapus.');

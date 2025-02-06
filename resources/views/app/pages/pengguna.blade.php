@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ route("pengguna.tambah-pengguna") }}">Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("pengguna.tambah-pengguna") }}"><i class="fas fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
                                 <td>{{ $pengguna->peran->nama_peran }}</td>
                                 <td>{{ $pengguna->login_aplikasi ? "Ya" : "Tidak" }}</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="#"><i class="fas fa-edit"></i> Edit</a>
+                                    <a class="btn btn-primary btn-sm" href="#"><i class="fas fa-edit"></i> Edit</a>
                                     <button class="btn btn-danger btn-sm btnHapus" data-id="{{ $pengguna->id }}"><i class="fas fa-trash"></i> Hapus</button>
                                 </td>
                             </tr>
@@ -121,7 +121,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `#`;
+                    formHapus.action = `{{ route("pengguna.hapus-pengguna", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });

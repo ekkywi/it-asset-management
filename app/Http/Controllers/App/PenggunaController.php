@@ -49,4 +49,12 @@ class PenggunaController extends Controller
 
         return redirect()->route('pengguna')->with('success', 'Pengguna berhasil ditambahkan.');
     }
+
+    // Hapus Data Pengguna
+    public function hapusPengguna(Pengguna $pengguna)
+    {
+        $pengguna->delete();
+
+        return redirect()->route('pengguna')->with('success', 'Pengguna berhasil dihapus.');
+    }
 }

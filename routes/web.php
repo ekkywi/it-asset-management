@@ -32,6 +32,7 @@ Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna
 Route::prefix('pengguna')->group(function () {
     Route::get('/tambah-pengguna', [PenggunaController::class, 'tambahPengguna'])->name('pengguna.tambah-pengguna');
     Route::post('/simpan-pengguna', [PenggunaController::class, 'simpanPengguna'])->name('pengguna.simpan-pengguna');
+    Route::delete('/hapus-pengguna/{pengguna}', [PenggunaController::class, 'hapusPengguna'])->name('pengguna.hapus-pengguna');
 });
 
 // Menu Organisasi
