@@ -4,15 +4,6 @@
     Login {!! "&mdash;" !!} E-Office
 @endsection
 
-@section("css")
-    <!-- General CSS Files -->
-    <link href="{{ asset("modules/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
-    <link href="{{ asset("modules/fontawesome/css/all.min.css") }}" rel="stylesheet">
-    <!-- Template CSS -->
-    <link href="{{ asset("css/style.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/components.css") }}" rel="stylesheet">
-@endsection
-
 @section("content")
     <div id="app">
         <section class="section">
@@ -20,7 +11,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <a href="{{ route("login") }}">
+                            <a href="{{ route("login-page") }}">
                                 <img alt="logo" class="shadow-light rounded-circle" src="{{ asset("images/logo.svg") }}" width="100">
                             </a>
                         </div>
@@ -41,11 +32,6 @@
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label class="control-label" for="password">Password</label>
-                                            <div class="float-right">
-                                                <a class="text-small" href="reset">
-                                                    Lupa password?
-                                                </a>
-                                            </div>
                                         </div>
                                         <input class="form-control" id="password" name="password" placeholder="Masukan password Anda" required tabindex="2" type="password">
                                         <div class="invalid-feedback">
@@ -66,13 +52,8 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="mt-5 text-muted text-center">
-                            <p></p>
-                            Belum memiliki akun? Registerasi <a href="register">disini</a><br>
-                            Akun belum teraktivasi? Aktivasi <a href="activation">disini</a>
-                        </div>
-                        <div class="simple-footer">
-                            &copy; 2025 E-Office - All Rights Reserved
+                        <div class="simple-footer text-muted">
+                            &copy; 2025 IT Asset Management - All Rights Reserved
                         </div>
                     </div>
                 </div>
@@ -81,19 +62,29 @@
     </div>
 @endsection
 
-@section("js")
-    <!-- General JS Scripts -->
-    <script src="{{ asset("modules/jquery/jquery.min.js") }}"></script>
-    <script src="{{ asset("modules/popper/popper.js") }}"></script>
-    <script src="{{ asset("modules/tooltip/tooltip.js") }}"></script>
-    <script src="{{ asset("modules/bootstrap/js/bootstrap.min.js") }}"></script>
-    <script src="{{ asset("modules/nicescroll/jquery.nicescroll.min.js") }}"></script>
-    <script src="{{ asset("modules/moment/moment.min.js") }}"></script>
-    <script src="{{ asset("js/stisla.js") }}"></script>
-    <!-- Template JS File -->
-    <script src="{{ asset("js/scripts.js") }}"></script>
-    <script src="{{ asset("js/custom.js") }}"></script>
-    <script src="{{ asset("modules/sweetalert/sweetalert.min.js") }}"></script>
+@section("script")
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved username and password if remember-me is checked
+            if (localStorage.getItem('rememberMe') === 'true') {
+                document.getElementById('username').value = localStorage.getItem('username');
+                document.getElementById('password').value = localStorage.getItem('password');
+                document.getElementById('remember-me').checked = true;
+            }
 
-    <!-- Page Specific JS File -->
+            document.getElementById('loginForm').addEventListener('submit', function() {
+                if (document.getElementById('remember-me').checked) {
+                    // Save username and password to localStorage
+                    localStorage.setItem('username', document.getElementById('username').value);
+                    localStorage.setItem('password', document.getElementById('password').value);
+                    localStorage.setItem('rememberMe', true);
+                } else {
+                    // Clear saved username and password
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.setItem('rememberMe', false);
+                }
+            });
+        });
+    </script>
 @endsection

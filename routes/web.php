@@ -22,7 +22,8 @@ Route::get('/', function () {
 });
 
 // Halaman Login
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'showLoginPage'])->name('login-page');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Halaman Dashboard
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
