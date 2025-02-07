@@ -7,41 +7,40 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class Pengguna extends Model
+class User extends Model
 {
     use HasFactory;
 
-    protected $table = 'pengguna';
+    protected $table = 'users';
 
     protected $fillable = [
-        'nama',
+        'name',
         'username',
         'password',
-        'bagian_id',
-        'jabatan_id',
-        'peran_id',
-        'login_aplikasi',
+        'section_id',
+        'position_id',
+        'role_id',
+        'application_login',
     ];
 
     public $incrementing = false;
     protected $keyType = 'string';
 
-    public function bagian()
+    public function section()
     {
-        return $this->belongsTo(Bagian::class);
+        return $this->belongsTo(Section::class);
     }
 
-    public function jabatan()
+    public function position()
     {
-        return $this->belongsTo(Jabatan::class);
+        return $this->belongsTo(Position::class);
     }
 
-    public function peran()
+    public function role()
     {
-        return $this->belongsTo(Peran::class);
+        return $this->belongsTo(Role::class);
     }
 
-    // Fungsi untuk enklripsi password
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

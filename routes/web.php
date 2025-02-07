@@ -46,9 +46,9 @@ Route::prefix('organisasi')->group(function () {
     Route::prefix('bagian')->group(function () {
         Route::get('/tambah-bagian', [OrganisasiController::class, 'tambahBagian'])->name('organisasi.tambah-bagian');
         Route::post('/simpan-bagian', [OrganisasiController::class, 'simpanBagian'])->name('organisasi.simpan-bagian');
-        Route::delete('/hapus-bagian/{bagian}', [OrganisasiController::class, 'hapusBagian'])->name('organisasi.hapus-bagian');
-        Route::get('/edit-bagian/{bagian}', [OrganisasiController::class, 'editBagian'])->name('organisasi.edit-bagian');
-        Route::put('/update-bagian/{bagian}', [OrganisasiController::class, 'updateBagian'])->name('organisasi.update-bagian');
+        Route::delete('/hapus-bagian/{section}', [OrganisasiController::class, 'hapusBagian'])->name('organisasi.hapus-bagian');
+        Route::get('/edit-bagian/{section}', [OrganisasiController::class, 'editBagian'])->name('organisasi.edit-bagian');
+        Route::put('/update-bagian/{section}', [OrganisasiController::class, 'updateBagian'])->name('organisasi.update-bagian');
     });
 
     // Menu Jabatan

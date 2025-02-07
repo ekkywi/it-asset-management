@@ -39,19 +39,19 @@
                         @csrf
                         <div class="form-group">
                             <label>Nama Bagian</label>
-                            <input class="form-control" name="nama_bagian" type="text">
+                            <input class="form-control" name="name" type="text">
                         </div>
                         <div class="form-group">
                             <label>Tag Bagian</label>
-                            <input class="form-control inputtags" name="tag_bagian" type="text">
+                            <input class="form-control inputtags" name="tag" type="text">
                         </div>
                         <div class="form-group">
                             <label>Pilih Warna Tag Bagian</label>
-                            <input class="form-control" name="warna_bagian" type="color">
+                            <input class="form-control" name="color" type="color">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control custom-textarea" name="keterangan" rows="10"></textarea>
+                            <textarea class="form-control custom-textarea" name="description" rows="10"></textarea>
                         </div>
 
                         <div class="form-group">

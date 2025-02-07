@@ -77,19 +77,19 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($bagians as $bagian)
+                        @foreach ($sections as $section)
                             <tr>
-                                <td>{{ $bagian->nama_bagian }}</td>
+                                <td>{{ $section->name }}</td>
                                 <td>
-                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $bagian->warna_bagian }};">{{ $bagian->tag_bagian }}</span>
+                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $section->color }};">{{ $section->tag }}</span>
                                 </td>
-                                <td>{{ $bagian->keterangan }}</td>
+                                <td>{{ $section->description }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-bagian", $bagian->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                    <form action="{{ route("organisasi.hapus-bagian", $bagian->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-bagian", $section->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                    <form action="{{ route("organisasi.hapus-bagian", $section->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger btnHapus" data-id="{{ $bagian->id }}" type="button"><i class="fas fa-trash"></i> Hapus</button>
+                                        <button class="btn btn-danger btnHapus" data-id="{{ $section->id }}" type="button"><i class="fas fa-trash"></i> Hapus</button>
                                     </form>
                                 </td>
                             </tr>

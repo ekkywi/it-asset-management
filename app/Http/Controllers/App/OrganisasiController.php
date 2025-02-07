@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\App;
 
-use App\Models\Bagian;
-use App\Models\Jabatan;
-use App\Models\Peran;
+use App\Models\Section;
+use App\Models\Position;
+use App\Models\Role;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\Pengguna;
 use Illuminate\Http\Request;
 use Monolog\Handler\IFTTTHandler;
 
@@ -17,9 +17,9 @@ class OrganisasiController extends Controller
     // View Halaman Bagian
     public function bagian()
     {
-        $bagians = Bagian::all();
+        $sections = Section::all();
 
-        return view('app.pages.bagian', compact('bagians'));
+        return view('app.pages.bagian', compact('sections'));
     }
 
 
@@ -34,48 +34,48 @@ class OrganisasiController extends Controller
     public function simpanBagian(Request $request)
     {
         $request->validate([
-            'nama_bagian' => 'required|unique:bagian|string|max:255',
-            'tag_bagian' => 'required|unique:bagian|string|max:255',
-            'warna_bagian' => 'nullable|string|max:255',
-            'keterangan' => 'nullable|string|max:255',
+            'name' => 'required|unique:sections|string|max:255',
+            'tag' => 'required|unique:sections|string|max:255',
+            'color' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
-        Bagian::create($request->all());
+        Section::create($request->all());
 
         return redirect()->route('organisasi.bagian')->with('success', 'Data bagian berhasil ditambahkan.');
     }
 
 
     // Hapus Data Bagian
-    public function hapusBagian(Bagian $bagian)
+    public function hapusBagian(Section $section)
     {
-        if (Pengguna::where('bagian_id', $bagian->id)->exists()) {
+        if (User::where('section_id', $section->id)->exists()) {
             return redirect()->route('organisasi.bagian')->with('error', 'Data bagian tidak bisa dihapus karena masih digunakan oleh pengguna.');
         }
 
-        $bagian->delete();
+        $section->delete();
 
         return redirect()->route('organisasi.bagian')->with('success', 'Data bagian berhasil dihapus.');
     }
 
 
     // View Form Edit Bagian
-    public function editBagian(Bagian $bagian)
+    public function editBagian(Section $section)
     {
-        return view('app.forms.edit-bagian', compact('bagian'));
+        return view('app.forms.edit-bagian', compact('section'));
     }
 
 
     // Update Data Bagian
-    public function updateBagian(Request $request, Bagian $bagian)
+    public function updateBagian(Request $request, Section $section)
     {
         $request->validate([
-            'nama_bagian' => 'required|string|max:255',
-            'tag_bagian' => 'required|string|max:255',
-            'keterangan' => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
+            'tag' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
-        $bagian->update($request->all());
+        $section->update($request->all());
 
         return redirect()->route('organisasi.bagian')->with('info', 'Data bagian berhasil diperbaharui.');
     }

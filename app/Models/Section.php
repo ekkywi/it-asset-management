@@ -6,21 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Bagian extends Model
+
+class Section extends Model
 {
     use HasFactory;
 
-    protected $table = 'bagian';
+    protected $table = 'sections';
 
     protected $fillable = [
-        'nama_bagian',
-        'tag_bagian',
-        'keterangan',
-        'warna_bagian',
+        'name',
+        'tag',
+        'description',
+        'color',
     ];
 
     public $incrementing = false;
     protected $keyType = 'string';
+
 
     protected static function boot()
     {

@@ -6,18 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-
-class Jabatan extends Model
+class Position extends Model
 {
     use HasFactory;
 
-    protected $table = 'jabatan';
+    protected $table = 'positions';
 
     protected $fillable = [
-        'nama_jabatan',
-        'tag_jabatan',
-        'keterangan',
-        'warna_jabatan',
+        'name',
+        'tag',
+        'description',
+        'color',
     ];
 
     public $incrementing = false;

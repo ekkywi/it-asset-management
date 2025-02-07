@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bagian', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nama_bagian');
-            $table->string('tag_bagian');
-            $table->string('keterangan')->nullable();
-            $table->string('warna_bagian')->nullable();
+            $table->string('name');
+            $table->string('tag');
+            $table->string('description')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bagian');
+        Schema::dropIfExists('sections');
     }
 };

@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('peran', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nama_peran');
-            $table->string('tag_peran');
-            $table->string('keterangan')->nullable();
-            $table->string('warna_peran')->nullable();
+            $table->string('name');
+            $table->string('tag');
+            $table->string('description')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('peran');
+        Schema::dropIfExists('roles');
     }
 };

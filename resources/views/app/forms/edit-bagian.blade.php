@@ -34,24 +34,24 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("organisasi.update-bagian", $bagian->id) }}" method="POST">
+                    <form action="{{ route("organisasi.update-bagian", $section->id) }}" method="POST">
                         @csrf
                         @method("PUT")
                         <div class="form-group">
                             <label>Nama Bagian</label>
-                            <input class="form-control" name="nama_bagian" type="text" value="{{ $bagian->nama_bagian }}">
+                            <input class="form-control" name="name" type="text" value="{{ $section->name }}">
                         </div>
                         <div class="form-group">
                             <label>Tag Bagian</label>
-                            <input class="form-control inputtags" name="tag_bagian" type="text" value="{{ $bagian->tag_bagian }}">
+                            <input class="form-control inputtags" name="tag" type="text" value="{{ $section->tag }}">
                         </div>
                         <div class="form-group">
                             <label>Warna Tag Bagian</label>
-                            <input class="form-control" name="warna_bagian" type="color" value="{{ $bagian->warna_bagian }}">
+                            <input class="form-control" name="color" type="color" value="{{ $section->color }}">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control custom-textarea" name="keterangan" rows="10">{{ $bagian->keterangan }}</textarea>
+                            <textarea class="form-control custom-textarea" name="description" rows="10">{{ $section->description }}</textarea>
                         </div>
 
                         <div class="form-group">
