@@ -57,4 +57,32 @@ class PenggunaController extends Controller
 
         return redirect()->route('pengguna')->with('success', 'Pengguna berhasil dihapus.');
     }
+
+    // View Halaman Edit Pengguna
+    public function editPengguna(Pengguna $pengguna)
+    {
+        $bagians = Bagian::all();
+        $jabatans = Jabatan::all();
+        $perans = Peran::all();
+
+        return view('app.forms.edit-pengguna', compact('pengguna', 'bagians', 'jabatans', 'perans'));
+    }
+
+    // Update Data Pengguna
+    public function updatePengguna(Request $request, Pengguna $pengguna)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:pengguna,username,' . $pengguna->id,
+            'password' => 'nullable|string|min:8',
+            'bagian_id' => 'required|exists:bagian,id',
+            'jabatan_id' => 'required|exists:jabatan,id',
+            'peran_id' => 'required|exists:peran,id',
+            'login_aplikasi' => 'required|boolean',
+        ]);
+
+        $pengguna->update($request->all());
+
+        return redirect()->route('pengguna')->with('info', 'Pengguna berhasil diupdate.');
+    }
 }

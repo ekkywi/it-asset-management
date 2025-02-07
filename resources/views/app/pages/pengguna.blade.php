@@ -74,7 +74,7 @@
                                 <td>{{ $pengguna->peran->nama_peran }}</td>
                                 <td>{{ $pengguna->login_aplikasi ? "Ya" : "Tidak" }}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="#"><i class="fas fa-edit"></i> Edit</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route("pengguna.edit-pengguna", $pengguna->id) }}"><i class="fas fa-edit"></i> Edit</a>
                                     <button class="btn btn-danger btn-sm btnHapus" data-id="{{ $pengguna->id }}"><i class="fas fa-trash"></i> Hapus</button>
                                 </td>
                             </tr>

@@ -39,15 +39,15 @@
                         @method("PUT")
                         <div class="form-group">
                             <label>Nama Jabatan</label>
-                            <input class="form-control" name="nama_jabatan" required type="text" value="{{ $jabatan->nama_jabatan }}">
+                            <input class="form-control" name="nama_jabatan" type="text" value="{{ $jabatan->nama_jabatan }}">
                         </div>
                         <div class="form-group">
                             <label>Tag Jabatan</label>
-                            <input class="form-control inputtags" name="tag_jabatan" required type="text" value="{{ $jabatan->tag_jabatan }}">
+                            <input class="form-control inputtags" name="tag_jabatan" type="text" value="{{ $jabatan->tag_jabatan }}">
                         </div>
                         <div class="form-group">
                             <label>Warna Tag Jabatan</label>
-                            <input class="form-control" name="warna_jabatan" required type="color" value="{{ $jabatan->warna_jabatan }}">
+                            <input class="form-control" name="warna_jabatan" type="color" value="{{ $jabatan->warna_jabatan }}">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>

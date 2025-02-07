@@ -33,6 +33,8 @@ Route::prefix('pengguna')->group(function () {
     Route::get('/tambah-pengguna', [PenggunaController::class, 'tambahPengguna'])->name('pengguna.tambah-pengguna');
     Route::post('/simpan-pengguna', [PenggunaController::class, 'simpanPengguna'])->name('pengguna.simpan-pengguna');
     Route::delete('/hapus-pengguna/{pengguna}', [PenggunaController::class, 'hapusPengguna'])->name('pengguna.hapus-pengguna');
+    Route::get('/edit-pengguna/{pengguna}', [PenggunaController::class, 'editPengguna'])->name('pengguna.edit-pengguna');
+    Route::put('/update-pengguna/{pengguna}', [PenggunaController::class, 'updatePengguna'])->name('pengguna.update-pengguna');
 });
 
 // Menu Organisasi
