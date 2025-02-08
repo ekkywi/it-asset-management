@@ -33,7 +33,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("pengguna.update-pengguna", $pengguna->id) }}" method="POST">
+                    <form action="{{ route("pengguna.update-pengguna", $user->id) }}" method="POST">
                         @csrf
                         @method("PUT")
 
@@ -53,21 +53,21 @@
                             <div aria-labelledby="informasi-pribadi-tab" class="tab-pane fade show active" id="informasi-pribadi" role="tabpanel">
                                 <div class="form-group">
                                     <label>Nama</label>
-                                    <input class="form-control" name="nama" type="text" value="{{ $pengguna->nama }}">
+                                    <input class="form-control" name="name" type="text" value="{{ $user->name }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Bagian</label>
-                                    <select class="form-control" name="bagian_id">
-                                        @foreach ($bagians as $bagian)
-                                            <option value="{{ $bagian->id }}">{{ $bagian->nama_bagian }}</option>
+                                    <select class="form-control" name="section_id">
+                                        @foreach ($sections as $section)
+                                            <option value="{{ $section->id }}">{{ $section->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Jabatan</label>
-                                    <select class="form-control" name="jabatan_id">
-                                        @foreach ($jabatans as $jabatan)
-                                            <option value="{{ $jabatan->id }}">{{ $jabatan->nama_jabatan }}</option>
+                                    <select class="form-control" name="position_id">
+                                        @foreach ($positions as $position)
+                                            <option value="{{ $position->id }}">{{ $position->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -76,26 +76,26 @@
                             <div aria-labelledby="keamanan-tab" class="tab-pane fade" id="keamanan" role="tabpanel">
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input class="form-control" name="username" type="text" value="{{ $pengguna->username }}">
+                                    <input class="form-control" name="username" type="text" value="{{ $user->username }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="form-control" name="password" type="password" value="{{ $pengguna->password }}">
+                                    <input class="form-control" name="password" type="password" value="{{ $user->password }}">
                                 </div>
                             </div>
 
                             <div aria-labelledby="aplikasi-tab" class="tab-pane fade" id="aplikasi" role="tabpanel">
                                 <div class="form-group">
                                     <label>Peran</label>
-                                    <select class="form-control" name="peran_id">
-                                        @foreach ($perans as $peran)
-                                            <option value="{{ $peran->id }}">{{ $peran->nama_peran }}</option>
+                                    <select class="form-control" name="role_id">
+                                        @foreach ($oles as $role)
+                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Login Aplikasi</label>
-                                    <select class="form-control" name="login_aplikasi">
+                                    <select class="form-control" name="login_application">
                                         <option value="1">Ya</option>
                                         <option value="0">Tidak</option>
                                     </select>

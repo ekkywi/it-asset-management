@@ -33,9 +33,9 @@ Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna
 Route::prefix('pengguna')->group(function () {
     Route::get('/tambah-pengguna', [PenggunaController::class, 'tambahPengguna'])->name('pengguna.tambah-pengguna');
     Route::post('/simpan-pengguna', [PenggunaController::class, 'simpanPengguna'])->name('pengguna.simpan-pengguna');
-    Route::delete('/hapus-pengguna/{pengguna}', [PenggunaController::class, 'hapusPengguna'])->name('pengguna.hapus-pengguna');
-    Route::get('/edit-pengguna/{pengguna}', [PenggunaController::class, 'editPengguna'])->name('pengguna.edit-pengguna');
-    Route::put('/update-pengguna/{pengguna}', [PenggunaController::class, 'updatePengguna'])->name('pengguna.update-pengguna');
+    Route::delete('/hapus-pengguna/{user}', [PenggunaController::class, 'hapusPengguna'])->name('pengguna.hapus-pengguna');
+    Route::get('/edit-pengguna/{user}', [PenggunaController::class, 'editPengguna'])->name('pengguna.edit-pengguna');
+    Route::put('/update-pengguna/{user}', [PenggunaController::class, 'updatePengguna'])->name('pengguna.update-pengguna');
 });
 
 // Menu Organisasi
@@ -56,9 +56,9 @@ Route::prefix('organisasi')->group(function () {
     Route::prefix('jabatan')->group(function () {
         Route::get('/tambah-jabatan', [OrganisasiController::class, 'tambahJabatan'])->name('organisasi.tambah-jabatan');
         Route::post('/simpan-jabatan', [OrganisasiController::class, 'simpanJabatan'])->name('organisasi.simpan-jabatan');
-        Route::delete('/hapus-jabatan/{jabatan}', [OrganisasiController::class, 'hapusJabatan'])->name('organisasi.hapus-jabatan');
-        Route::get('/edit-jabatan/{jabatan}', [OrganisasiController::class, 'editJabatan'])->name('organisasi.edit-jabatan');
-        Route::put('/update-jabatan/{jabatan}', [OrganisasiController::class, 'updateJabatan'])->name('organisasi.update-jabatan');
+        Route::delete('/hapus-jabatan/{position}', [OrganisasiController::class, 'hapusJabatan'])->name('organisasi.hapus-jabatan');
+        Route::get('/edit-jabatan/{position}', [OrganisasiController::class, 'editJabatan'])->name('organisasi.edit-jabatan');
+        Route::put('/update-jabatan/{position}', [OrganisasiController::class, 'updateJabatan'])->name('organisasi.update-jabatan');
     });
 
     // Menu Peran
@@ -66,8 +66,8 @@ Route::prefix('organisasi')->group(function () {
     Route::prefix('peran')->group(function () {
         Route::get('/tambah-peran', [OrganisasiController::class, 'tambahPeran'])->name('organisasi.tambah-peran');
         Route::post('/simpan-peran', [OrganisasiController::class, 'simpanPeran'])->name('organisasi.simpan-peran');
-        Route::delete('/hapus-peran/{peran}', [OrganisasiController::class, 'hapusPeran'])->name('organisasi.hapus-peran');
-        Route::get('/edit-peran/{peran}', [OrganisasiController::class, 'editPeran'])->name('organisasi.edit-peran');
-        Route::put('/update-peran/{peran}', [OrganisasiController::class, 'updatePeran'])->name('organisasi.update-peran');
+        Route::delete('/hapus-peran/{role}', [OrganisasiController::class, 'hapusPeran'])->name('organisasi.hapus-peran');
+        Route::get('/edit-peran/{role}', [OrganisasiController::class, 'editPeran'])->name('organisasi.edit-peran');
+        Route::put('/update-peran/{role}', [OrganisasiController::class, 'updatePeran'])->name('organisasi.update-peran');
     });
 });

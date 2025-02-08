@@ -83,9 +83,9 @@ class OrganisasiController extends Controller
     // View Halaman Jabatan
     public function jabatan()
     {
-        $jabatans = Jabatan::all();
+        $positions = Position::all();
 
-        return view('app.pages.jabatan', compact('jabatans'));
+        return view('app.pages.jabatan', compact('positions'));
     }
 
     // View Halaman Tambah Jabatan
@@ -98,45 +98,45 @@ class OrganisasiController extends Controller
     public function simpanJabatan(Request $request)
     {
         $request->validate([
-            'nama_jabatan' => 'required|unique:jabatan|string|max:255',
-            'tag_jabatan' => 'required|unique:jabatan|string|max:255',
-            'warna_jabatan' => 'nullable|string|max:255',
-            'keterangan' => 'nullable|string|max:255',
+            'name' => 'required|unique:positions|string|max:255',
+            'tag' => 'required|unique:positions|string|max:255',
+            'color' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
-        Jabatan::create($request->all());
+        Position::create($request->all());
 
         return redirect()->route('organisasi.jabatan')->with('success', 'Data jabatan berhasil ditambahkan.');
     }
 
     // Hapus Data Jabatan
-    public function hapusJabatan(Jabatan $jabatan)
+    public function hapusJabatan(Position $position)
     {
-        if (Pengguna::where('jabatan_id', $jabatan->id)->exists()) {
+        if (User::where('position_id', $position->id)->exists()) {
             return redirect()->route('organisasi.jabatan')->with('error', 'Data jabatan tidak bisa dihapus karena masih digunakan oleh pengguna.');
         }
 
-        $jabatan->delete();
+        $position->delete();
 
         return redirect()->route('organisasi.jabatan')->with('success', 'Data jabatan berhasil dihapus.');
     }
 
     // View Form Edit Jabatan
-    public function editJabatan(Jabatan $jabatan)
+    public function editJabatan(Position $position)
     {
-        return view('app.forms.edit-jabatan', compact('jabatan'));
+        return view('app.forms.edit-jabatan', compact('position'));
     }
 
     // Update Data Jabatan
-    public function updateJabatan(Request $request, Jabatan $jabatan)
+    public function updateJabatan(Request $request, Position $position)
     {
         $request->validate([
-            'nama_jabatan' => 'required|string|max:255',
-            'tag_jabatan' => 'required|string|max:255',
-            'keterangan' => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
+            'tag' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
-        $jabatan->update($request->all());
+        $position->update($request->all());
 
         return redirect()->route('organisasi.jabatan')->with('info', 'Data jabatan berhasil diperbaharui.');
     }
@@ -144,9 +144,9 @@ class OrganisasiController extends Controller
     // View Halaman Peran
     public function peran()
     {
-        $perans = Peran::all();
+        $roles = Role::all();
 
-        return view('app.pages.peran', compact('perans'));
+        return view('app.pages.peran', compact('roles'));
     }
 
     // View Halaman Tambah Peran
@@ -159,45 +159,46 @@ class OrganisasiController extends Controller
     public function simpanPeran(Request $request)
     {
         $request->validate([
-            'nama_peran' => 'required|unique:peran|string|max:255',
-            'tag_peran' => 'required|unique:peran|string|max:255',
-            'warna_peran' => 'nullable|string|max:255',
-            'keterangan' => 'nullable|string|max:255',
+            'name' => 'required|unique:roles|string|max:255',
+            'tag' => 'required|unique:roles|string|max:255',
+            'color' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
-        Peran::create($request->all());
+        Role::create($request->all());
 
         return redirect()->route('organisasi.peran')->with('success', 'Data peran berhasil ditambahkan.');
     }
 
     // Hapus Data Peran
-    public function hapusPeran(Peran $peran)
+    public function hapusPeran(Role $role)
     {
-        if (Pengguna::where('peran_id', $peran->id)->exists()) {
+        if (User::where('role_id', $role->id)->exists()) {
             return redirect()->route('organisasi.peran')->with('error', 'Data peran tidak bisa dihapus karena masih digunakan oleh pengguna.');
         }
 
-        $peran->delete();
+        $role->delete();
 
         return redirect()->route('organisasi.peran')->with('success', 'Data peran berhasil dihapus.');
     }
 
     // View Form Edit Peran
-    public function editPeran(Peran $peran)
+    public function editPeran(Role $role)
     {
-        return view('app.forms.edit-peran', compact('peran'));
+        return view('app.forms.edit-peran', compact('role'));
     }
 
     // Update Data Peran
-    public function updatePeran(Request $request, Peran $peran)
+    public function updatePeran(Request $request, Role $role)
     {
         $request->validate([
-            'nama_peran' => 'required|string|max:255',
-            'tag_peran' => 'required|string|max:255',
-            'keterangan' => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
+            'tag' => 'required|string|max:255',
+            'color' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
-        $peran->update($request->all());
+        $role->update($request->all());
 
         return redirect()->route('organisasi.peran')->with('info', 'Data peran berhasil diperbaharui.');
     }

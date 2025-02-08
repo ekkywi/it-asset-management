@@ -77,19 +77,19 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($perans as $peran)
+                        @foreach ($roles as $role)
                             <tr>
-                                <td>{{ $peran->nama_peran }}</td>
+                                <td>{{ $role->name }}</td>
                                 <td>
-                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $peran->warna_peran }};">{{ $peran->tag_peran }}</span>
+                                    <span class="badge" style="color: white; font-weight: bold; background-color: {{ $role->color }};">{{ $role->tag }}</span>
                                 </td>
-                                <td>{{ $peran->keterangan }}</td>
+                                <td>{{ $role->description }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-peran", $peran->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                    <form action="{{ route("organisasi.hapus-peran", $peran->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-peran", $role->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                    <form action="{{ route("organisasi.hapus-peran", $role->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger btnHapus" data-id="{{ $peran->id }}" type="button"><i class="fas fa-trash"></i> Hapus</button>
+                                        <button class="btn btn-danger btnHapus" data-id="{{ $role->id }}" type="button"><i class="fas fa-trash"></i> Hapus</button>
                                     </form>
                                 </td>
                             </tr>

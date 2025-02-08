@@ -38,7 +38,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Nama</label>
-                            <input class="form-control" name="nama" type="text">
+                            <input class="form-control" name="name" type="text">
                         </div>
                         <div class="form-group">
                             <label>Username</label>
@@ -50,31 +50,31 @@
                         </div>
                         <div class="form-group">
                             <label>Bagian</label>
-                            <select class="form-control" name="bagian_id">
-                                @foreach ($bagians as $bagian)
-                                    <option value="{{ $bagian->id }}">{{ $bagian->nama_bagian }}</option>
+                            <select class="form-control" name="section_id">
+                                @foreach ($sections as $section)
+                                    <option value="{{ $section->id }}">{{ $section->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Jabatan</label>
-                            <select class="form-control" name="jabatan_id">
-                                @foreach ($jabatans as $jabatan)
-                                    <option value="{{ $jabatan->id }}">{{ $jabatan->nama_jabatan }}</option>
+                            <select class="form-control" name="position_id">
+                                @foreach ($positions as $position)
+                                    <option value="{{ $position->id }}">{{ $position->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Peran</label>
-                            <select class="form-control" name="peran_id">
-                                @foreach ($perans as $peran)
-                                    <option value="{{ $peran->id }}">{{ $peran->nama_peran }}</option>
+                            <select class="form-control" name="role_id">
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Login Aplikasi</label>
-                            <select class="form-control" name="login_aplikasi">
+                            <select class="form-control" name="login_aplication">
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>

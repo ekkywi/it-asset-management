@@ -66,16 +66,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($penggunas as $pengguna)
+                        @foreach ($users as $user)
                             <tr>
-                                <td>{{ $pengguna->nama }}</td>
-                                <td>{{ $pengguna->bagian->nama_bagian }}</td>
-                                <td>{{ $pengguna->jabatan->nama_jabatan }}</td>
-                                <td>{{ $pengguna->peran->nama_peran }}</td>
-                                <td>{{ $pengguna->login_aplikasi ? "Ya" : "Tidak" }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->sections->name }}</td>
+                                <td>{{ $user->positions->name }}</td>
+                                <td>{{ $user->roles->name }}</td>
+                                <td>{{ $user->login_application ? "Ya" : "Tidak" }}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="{{ route("pengguna.edit-pengguna", $pengguna->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                    <button class="btn btn-danger btn-sm btnHapus" data-id="{{ $pengguna->id }}"><i class="fas fa-trash"></i> Hapus</button>
+                                    <a class="btn btn-primary btn-sm" href="{{ route("pengguna.edit-pengguna", $user->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                    <button class="btn btn-danger btn-sm btnHapus" data-id="{{ $user->id }}"><i class="fas fa-trash"></i> Hapus</button>
                                 </td>
                             </tr>
                         @endforeach

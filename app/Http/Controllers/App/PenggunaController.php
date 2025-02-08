@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\App;
 
-use App\Models\Bagian;
-use App\Models\Jabatan;
-use App\Models\Peran;
+use App\Models\Section;
+use App\Models\Position;
+use App\Models\Role;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Pengguna;
 
 class PenggunaController extends Controller
 {
@@ -17,71 +17,71 @@ class PenggunaController extends Controller
     // View Halaman Pengguna
     public function pengguna()
     {
-        $penggunas = Pengguna::all();
+        $users = User::all();
 
-        return view('app.pages.pengguna', compact('penggunas'));
+        return view('app.pages.pengguna', compact('users'));
     }
 
     // View Halaman Tambah Pengguna
     public function tambahPengguna()
     {
-        $bagians = Bagian::all();
-        $jabatans = Jabatan::all();
-        $perans = Peran::all();
+        $sections = Section::all();
+        $positions = Position::all();
+        $roles = Role::all();
 
-        return view('app.forms.tambah-pengguna', compact('bagians', 'jabatans', 'perans'));
+        return view('app.forms.tambah-pengguna', compact('sections', 'positions', 'roles'));
     }
 
     // Simpan Data Pengguna
     public function simpanPengguna(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:pengguna,username',
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username',
             'password' => 'required|string|min:8',
-            'bagian_id' => 'required|exists:bagian,id',
-            'jabatan_id' => 'required|exists:jabatan,id',
-            'peran_id' => 'required|exists:peran,id',
-            'login_aplikasi' => 'required|boolean',
+            'section_id' => 'required|exists:sections,id',
+            'position_id' => 'required|exists:positions,id',
+            'role_id' => 'required|exists:roles,id',
+            'login_application' => 'required|boolean',
         ]);
 
-        Pengguna::create($request->all());
+        User::create($request->all());
 
         return redirect()->route('pengguna')->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
     // Hapus Data Pengguna
-    public function hapusPengguna(Pengguna $pengguna)
+    public function hapusPengguna(User $user)
     {
-        $pengguna->delete();
+        $user->delete();
 
         return redirect()->route('pengguna')->with('success', 'Pengguna berhasil dihapus.');
     }
 
     // View Halaman Edit Pengguna
-    public function editPengguna(Pengguna $pengguna)
+    public function editPengguna(User $user)
     {
-        $bagians = Bagian::all();
-        $jabatans = Jabatan::all();
-        $perans = Peran::all();
+        $sections = Section::all();
+        $positions = Position::all();
+        $roles = Role::all();
 
         return view('app.forms.edit-pengguna', compact('pengguna', 'bagians', 'jabatans', 'perans'));
     }
 
     // Update Data Pengguna
-    public function updatePengguna(Request $request, Pengguna $pengguna)
+    public function updatePengguna(Request $request, User $user)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:pengguna,username,' . $pengguna->id,
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users,username,' . $user->id,
             'password' => 'nullable|string|min:8',
-            'bagian_id' => 'required|exists:bagian,id',
-            'jabatan_id' => 'required|exists:jabatan,id',
-            'peran_id' => 'required|exists:peran,id',
-            'login_aplikasi' => 'required|boolean',
+            'section_id' => 'required|exists:sections,id',
+            'position_id' => 'required|exists:positions,id',
+            'role_id' => 'required|exists:roles,id',
+            'login_application' => 'required|boolean',
         ]);
 
-        $pengguna->update($request->all());
+        $user->update($request->all());
 
         return redirect()->route('pengguna')->with('info', 'Pengguna berhasil diupdate.');
     }
