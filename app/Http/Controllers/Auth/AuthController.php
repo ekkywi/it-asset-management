@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Pengguna;
+use App\Models\User;
 use Illuminate\Support\Facades\Log;
 
 
@@ -24,20 +24,29 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required'
+            'username' => 'required|string',
+            'password' => 'required|string',
         ]);
 
-        try {
-            if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-                return redirect()->route('dashboard')->with('success', 'Selamat Datang');
-            } else {
-                return redirect()->route('login')->with('error', 'Username atau password salah');
-            }
-        } catch (\Exception $e) {
-            Log::error('Error Login: ' . $e->getMessage());
-        }
+        $credentials = $request->only('username', 'password');
+        $user = User::where('username', $credentials['username'])->first();
 
-        return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login');
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            if ($user->login_application) {
+                Auth::login($user);
+                return redirect()->route('dashboard')->with('success', 'Selamat Datang ' . $user->name);
+            } else {
+                return redirect()->back()->with('error', 'Akun Anda tidak memiliki akses ke aplikasi ini');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Username atau Password Salah');
+        }
+    }
+
+    // Proses Logout
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'Anda Telah Logout');
     }
 }

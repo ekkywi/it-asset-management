@@ -65,7 +65,7 @@ class PenggunaController extends Controller
         $positions = Position::all();
         $roles = Role::all();
 
-        return view('app.forms.edit-pengguna', compact('pengguna', 'bagians', 'jabatans', 'perans'));
+        return view('app.forms.edit-pengguna', compact('user', 'sections', 'positions', 'roles'));
     }
 
     // Update Data Pengguna

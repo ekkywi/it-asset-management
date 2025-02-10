@@ -69,9 +69,9 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ $user->sections->name }}</td>
-                                <td>{{ $user->positions->name }}</td>
-                                <td>{{ $user->roles->name }}</td>
+                                <td>{{ $user->section->name }}</td>
+                                <td>{{ $user->position->name }}</td>
+                                <td>{{ $user->role->name }}</td>
                                 <td>{{ $user->login_application ? "Ya" : "Tidak" }}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="{{ route("pengguna.edit-pengguna", $user->id) }}"><i class="fas fa-edit"></i> Edit</a>

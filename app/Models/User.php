@@ -3,13 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Auth\Authenticatable;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class User extends Model
+class User extends Model implements AuthenticatableContract
 {
-    use HasFactory;
+    use Authenticatable, HasFactory;
 
     protected $table = 'users';
 
@@ -20,7 +23,7 @@ class User extends Model
         'section_id',
         'position_id',
         'role_id',
-        'application_login',
+        'login_application',
     ];
 
     public $incrementing = false;

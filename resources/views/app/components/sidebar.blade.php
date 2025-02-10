@@ -31,11 +31,15 @@
                     <li class="{{ Request::is("organisasi/peran") || Request::is("organisasi/peran/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.peran") }}">Peran</a></li>
                 </ul>
             </li>
+        </ul>
 
-            <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-                <a class="btn btn-danger btn-lg btn-block btn-icon-split" href="{{ url("dashboard") }}">
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <form action="{{ route("logout") }}" method="POST">
+                @csrf
+                <button class="btn btn-danger btn-lg btn-block btn-icon-split" type="submit">
                     <i class="fas fa-power-off"></i> Logout
-                </a>
-            </div>
+                </button>
+            </form>
+        </div>
     </aside>
 </div>

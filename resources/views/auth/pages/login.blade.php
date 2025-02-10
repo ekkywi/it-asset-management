@@ -19,6 +19,28 @@
                             <div class="card-header">
                                 <h3>Login</h3>
                             </div>
+
+                            @if (@session("success"))
+                                <div class="alert alert-success alert-dismissible show fade">
+                                    <div class="alert-body">
+                                        <button class="close" data-dismiss="alert">
+                                            <span>×</span>
+                                        </button>
+                                        {{ session("success") }}
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if (@session("error"))
+                                <div class="alert alert-danger alert-dismissible show fade">
+                                    <div class="alert-body">
+                                        <button class="close" data-dismiss="alert">
+                                            <span>×</span>
+                                        </button>
+                                        {{ session("error") }}
+                                    </div>
+                                </div>
+                            @endif
                             <div class="card-body">
                                 <form action="{{ route("login") }}" class="needs-validation" id="loginForm" method="POST" novalidate="">
                                     @csrf
@@ -40,8 +62,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" id="remember-me" name="remember" tabindex="3" type="checkbox">
-                                            <label class="custom-control-label" for="remember-me">Ingat Saya</label>
+                                            {{-- <input class="custom-control-input" id="remember-me" name="remember" tabindex="3" type="checkbox">
+                                            <label class="custom-control-label" for="remember-me">Ingat Saya</label> --}}
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -63,28 +85,4 @@
 @endsection
 
 @section("script")
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load saved username and password if remember-me is checked
-            if (localStorage.getItem('rememberMe') === 'true') {
-                document.getElementById('username').value = localStorage.getItem('username');
-                document.getElementById('password').value = localStorage.getItem('password');
-                document.getElementById('remember-me').checked = true;
-            }
-
-            document.getElementById('loginForm').addEventListener('submit', function() {
-                if (document.getElementById('remember-me').checked) {
-                    // Save username and password to localStorage
-                    localStorage.setItem('username', document.getElementById('username').value);
-                    localStorage.setItem('password', document.getElementById('password').value);
-                    localStorage.setItem('rememberMe', true);
-                } else {
-                    // Clear saved username and password
-                    localStorage.removeItem('username');
-                    localStorage.removeItem('password');
-                    localStorage.setItem('rememberMe', false);
-                }
-            });
-        });
-    </script>
 @endsection

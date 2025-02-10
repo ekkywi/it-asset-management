@@ -88,7 +88,7 @@
                                 <div class="form-group">
                                     <label>Peran</label>
                                     <select class="form-control" name="role_id">
-                                        @foreach ($oles as $role)
+                                        @foreach ($roles as $role)
                                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                                         @endforeach
                                     </select>

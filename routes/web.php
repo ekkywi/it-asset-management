@@ -21,16 +21,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Halaman Login
-Route::get('/login', [AuthController::class, 'showLoginPage'])->name('login-page');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::middleware(['web'])->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginPage'])->name('login-page');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+});
 
-// Halaman Dashboard
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+// Dashboard
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 // Menu Pengguna
-Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna');
-Route::prefix('pengguna')->group(function () {
+Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna')->middleware('auth');
+Route::prefix('pengguna')->middleware('auth')->group(function () {
     Route::get('/tambah-pengguna', [PenggunaController::class, 'tambahPengguna'])->name('pengguna.tambah-pengguna');
     Route::post('/simpan-pengguna', [PenggunaController::class, 'simpanPengguna'])->name('pengguna.simpan-pengguna');
     Route::delete('/hapus-pengguna/{user}', [PenggunaController::class, 'hapusPengguna'])->name('pengguna.hapus-pengguna');
@@ -39,7 +41,7 @@ Route::prefix('pengguna')->group(function () {
 });
 
 // Menu Organisasi
-Route::prefix('organisasi')->group(function () {
+Route::prefix('organisasi')->middleware('auth')->group(function () {
 
     // Menu Bagian
     Route::get('/bagian', [OrganisasiController::class, 'bagian'])->name('organisasi.bagian');
@@ -70,4 +72,4 @@ Route::prefix('organisasi')->group(function () {
         Route::get('/edit-peran/{role}', [OrganisasiController::class, 'editPeran'])->name('organisasi.edit-peran');
         Route::put('/update-peran/{role}', [OrganisasiController::class, 'updatePeran'])->name('organisasi.update-peran');
     });
-});
+})->middleware('auth');

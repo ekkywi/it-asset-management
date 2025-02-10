@@ -195,8 +195,8 @@
         </li>
         <li class="dropdown">
             <a class="nav-link dropdown-toggle nav-link-lg nav-link-user" data-toggle="dropdown" href="#">
-                {{-- <figure class="avatar mr-2 avatar-sm bg-info text-white" data-initial="{{ strtoupper(substr(Auth::user()->nama, 0, 1)) }}"></figure> --}}
-                {{-- <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->nama }}</div> --}}
+                <figure class="avatar mr-2 avatar-sm bg-info text-white" data-initial="{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}"></figure>
+                <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logged in 5 min ago</div>
@@ -210,7 +210,10 @@
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item has-icon text-danger" href="#">
+                <form action="{{ route("logout") }}" id="logout-form" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <a class="dropdown-item has-icon text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>

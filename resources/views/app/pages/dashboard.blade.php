@@ -14,6 +14,17 @@
             </div>
         </div>
 
+        @if (session("success"))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>×</span>
+                    </button>
+                    {{ session("success") }}
+                </div>
+            </div>
+        @endif
+
         <div class="section-body">
             <h2 class="section-title">This is Example Page</h2>
             <p class="section-lead">This page is just an example for you to create your own page.</p>

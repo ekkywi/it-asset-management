@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-group">
                             <label>Login Aplikasi</label>
-                            <select class="form-control" name="login_aplication">
+                            <select class="form-control" name="login_application">
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>
