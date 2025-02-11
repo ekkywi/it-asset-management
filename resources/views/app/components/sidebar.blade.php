@@ -8,6 +8,7 @@
         </div>
         <ul class="sidebar-menu">
 
+            {{-- Menu Header Dashboard --}}
             <li class="menu-header">Dashboard</li>
 
             {{-- Menu Dashboard --}}
@@ -15,6 +16,10 @@
                 <a class="nav-link" href="{{ route("dashboard") }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
+            {{-- Menu Header Master Data --}}
+            <li class="menu-header">Master Data</li>
+
+            {{-- Menu Header Pengaturan --}}
             <li class="menu-header">Pengaturan</li>
 
             {{-- Menu Pengguna --}}

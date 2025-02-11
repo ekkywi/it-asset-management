@@ -17,10 +17,11 @@ use App\Http\Controllers\App\OrganisasiController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Landing Page
+Route::get('/', [DashboardController::class, 'landing'])->name('landing-page')->middleware('auth');
 
+
+// Auth
 Route::middleware(['web'])->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginPage'])->name('login-page');
     Route::post('/login', [AuthController::class, 'login'])->name('login');

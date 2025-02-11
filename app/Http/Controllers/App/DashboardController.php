@@ -11,4 +11,9 @@ class DashboardController extends Controller
     {
         return view('app.pages.dashboard');
     }
+
+    public function landing()
+    {
+        return view('app.pages.dashboard');
+    }
 }

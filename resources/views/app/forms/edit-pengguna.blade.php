@@ -9,7 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-users"></i> Pengguna</div>
+                <div class="breadcrumb-item"><a href="{{ route("pengguna") }}"><i class="fas fa-users"></i> Pengguna</a></div>
                 <div class="breadcrumb-item active"><i class="fas fa-edit"></i> Edit Pengguna</div>
             </div>
         </div>
