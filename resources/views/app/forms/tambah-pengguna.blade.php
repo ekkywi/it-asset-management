@@ -9,7 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><a href="{{ route("pengguna") }}"><i class="fas fa-users"></i> Pengguna</a></div>
+                <div class="breadcrumb-item"><a href="{{ route("user") }}"><i class="fas fa-users"></i> Pengguna</a></div>
                 <div class="breadcrumb-item active"><i class="fas fa-plus"></i> Tambah Data Pengguna</div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("pengguna.simpan-pengguna") }}" method="POST">
+                    <form action="{{ route("user.store") }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Nama</label>
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <div class="text-right">
                                 <button class="btn btn-info" type="reset">Hapus</button>
-                                <button class="btn btn-danger" onclick="window.location='{{ route("pengguna") }}'" type="button">Batal</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ route("user") }}'" type="button">Batal</button>
                                 <button class="btn btn-primary" type="submit">Simpan</button>
                             </div>
                         </div>

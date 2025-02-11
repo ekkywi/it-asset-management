@@ -9,8 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-building"></i> Oganisasi</div>
-                <div class="breadcrumb-item"><a href="{{ route("organisasi.peran") }}"><i class="fas fa-people-group"></i> Peran</a></div>
+                <div class="breadcrumb-item"><a href="{{ route("role") }}"><i class="fas fa-people-group"></i> Peran</a></div>
                 <div class="breadcrumb-item active"><i class="fas fa-plus"></i> Tambah Data Peran</div>
             </div>
         </div>
@@ -35,7 +34,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("organisasi.simpan-peran") }}" method="POST">
+                    <form action="{{ route("role.store") }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Nama Peran</label>
@@ -57,7 +56,7 @@
                         <div class="form-group">
                             <div class="text-right">
                                 <button class="btn btn-info" type="reset">Hapus</button>
-                                <button class="btn btn-danger" onclick="window.location='{{ route("organisasi.peran") }}'" type="button">Batal</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ route("role") }}'" type="button">Batal</button>
                                 <button class="btn btn-primary">Simpan</button>
                             </div>
                         </div>

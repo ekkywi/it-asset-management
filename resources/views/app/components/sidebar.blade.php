@@ -19,32 +19,47 @@
             {{-- Menu Header Master Data --}}
             <li class="menu-header">Master Data</li>
 
-            {{-- Menu Header Pengaturan --}}
-            <li class="menu-header">Pengaturan</li>
-
-            {{-- Menu Pengguna --}}
-            <li class="dropdown {{ Request::is("pengguna") || Request::is("pengguna/*") ? "active" : "" }}">
-                <a class ="nav-link" href="{{ route("pengguna") }}"><i class="fas fa-users"></i> <span>Pengguna</span></a>
+            {{-- Menu Merk --}}
+            <li class="dropdown {{ Request::is("merk") || Request::is("merk/*") ? "active" : "" }}">
+                <a class="nav-link" href="{{ route("merk") }}"><i class="fas fa-tags"></i> <span>Merk</span></a>
             </li>
 
-            {{-- Menu Organisasi --}}
-            <li class="dropdown {{ Request::is("organisasi/*") ? "active" : "" }}">
-                <a class="nav-link has-dropdown" href="{{ url("organisasi") }}"><i class="fas fa-building"></i> <span>Organisasi</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ Request::is("organisasi/bagian") || Request::is("organisasi/bagian/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.bagian") }}">Bagian</a></li>
-                    <li class="{{ Request::is("organisasi/jabatan") || Request::is("organisasi/jabatan/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.jabatan") }}">Jabatan</a></li>
-                    <li class="{{ Request::is("organisasi/peran") || Request::is("organisasi/peran/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("organisasi.peran") }}">Peran</a></li>
-                </ul>
+            {{-- Menu Model --}}
+            <li class="dropdown {{ Request::is("model") || Request::is("model/*") ? "active" : "" }}">
+                <a class="nav-link" href="{{ route("model") }}"><i class="fas fa-cubes"></i> <span>Model</span></a>
             </li>
+
         </ul>
 
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <form action="{{ route("logout") }}" method="POST">
-                @csrf
-                <button class="btn btn-danger btn-lg btn-block btn-icon-split" type="submit">
-                    <i class="fas fa-power-off"></i> Logout
-                </button>
-            </form>
+        {{-- Menu Pengaturan --}}
+        <div class="menu-divider">
+            <hr>
+            <ul class="sidebar-menu">
+                <li class="menu-header">Pengaturan</li>
+                <li class="dropdown {{ Request::is("pengguna") || Request::is("pengguna/*") || Request::is("bagian") || Request::is("bagian/*") || Request::is("jabatan") || Request::is("jabatan/*") || Request::is("peran") || Request::is("peran/*") ? "active" : "" }}">
+                    <a class="nav-link has-dropdown" href="#"><i class="fas fa-rocket"></i> <span>Aplikasi</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ Request::is("pengguna") || Request::is("pengguna/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("user") }}">Pengguna</a></li>
+                        <li class="{{ Request::is("bagian") || Request::is("bagian/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("section") }}">Bagian</a></li>
+                        <li class="{{ Request::is("jabatan") || Request::is("jabatan/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("position") }}">Jabatan</a></li>
+                        <li class="{{ Request::is("peran") || Request::is("peran/*") ? "active" : "" }}"><a class="nav-link" href="{{ route("role") }}">Peran</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
+
+        {{-- Menu Logout --}}
+        <div class="menu-divider">
+            <hr>
+            <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+                <form action="{{ route("logout") }}" method="POST">
+                    @csrf
+                    <button class="btn btn-danger btn-lg btn-block btn-icon-split" type="submit">
+                        <i class="fas fa-power-off"></i> Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+
     </aside>
 </div>

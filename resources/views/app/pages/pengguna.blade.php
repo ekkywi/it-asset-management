@@ -9,7 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item active"><i class="fas fa-users"></i> Pengguna</div>
+                <div class="breadcrumb-item active"><a href="{{ route("user") }}"><i class="fas fa-users"></i> Pengguna</a></div>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ route("pengguna.tambah-pengguna") }}"><i class="fas fa-plus"></i> Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("user.create") }}"><i class="fas fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
                                 <td>{{ $user->role->name }}</td>
                                 <td>{{ $user->login_application ? "Ya" : "Tidak" }}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="{{ route("pengguna.edit-pengguna", $user->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route("user.edit", $user->id) }}"><i class="fas fa-edit"></i> Edit</a>
                                     <button class="btn btn-danger btn-sm btnHapus" data-id="{{ $user->id }}"><i class="fas fa-trash"></i> Hapus</button>
                                 </td>
                             </tr>
@@ -121,7 +121,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `{{ route("pengguna.hapus-pengguna", "") }}/${id}`;
+                    formHapus.action = `{{ route("user.destroy", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });

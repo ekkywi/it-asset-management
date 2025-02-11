@@ -9,8 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-building"></i> Organisasi</div>
-                <div class="breadcrumb-item"><a href="{{ route("organisasi.jabatan") }}"><i class="fas fa-briefcase"></i> Jabatan</a></div>
+                <div class="breadcrumb-item"><a href="{{ route("position") }}"><i class="fas fa-briefcase"></i> Jabatan</a></div>
                 <div class="breadcrumb-item active"><i class="fas fa-edit"></i> Edit Data Jabatan</div>
             </div>
         </div>
@@ -34,7 +33,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("organisasi.update-jabatan", $position->id) }}" method="POST">
+                    <form action="{{ route("position.update", $position->id) }}" method="POST">
                         @csrf
                         @method("PUT")
                         <div class="form-group">
@@ -56,7 +55,7 @@
 
                         <div class="form-group">
                             <div class="text-right">
-                                <button class="btn btn-danger" onclick="window.location='{{ route("organisasi.jabatan") }}'" type="button">Batal</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ route("position") }}'" type="button">Batal</button>
                                 <button class="btn btn-primary" type="submit">Simpan</button>
                             </div>
                         </div>

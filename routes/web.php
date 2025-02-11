@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\App\DashboardController;
-use App\Http\Controllers\App\PenggunaController;
-use App\Http\Controllers\App\OrganisasiController;
+use App\Http\Controllers\App\ModelController;
+use App\Http\Controllers\App\MerkController;
+use App\Http\Controllers\App\UserController;
+use App\Http\Controllers\App\SectionController;
+use App\Http\Controllers\App\PositionController;
+use App\Http\Controllers\App\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,46 +35,48 @@ Route::middleware(['web'])->group(function () {
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
-// Menu Pengguna
-Route::get('/pengguna', [PenggunaController::class, 'pengguna'])->name('pengguna')->middleware('auth');
+// Menu Merk
+Route::get('/merk', [MerkController::class, 'merk'])->name('merk')->middleware('auth');
+
+// Menu Model
+Route::get('/model', [ModelController::class, 'model'])->name('model')->middleware('auth');
+
+// Menu Pengaturan Pengguna
 Route::prefix('pengguna')->middleware('auth')->group(function () {
-    Route::get('/tambah-pengguna', [PenggunaController::class, 'tambahPengguna'])->name('pengguna.tambah-pengguna');
-    Route::post('/simpan-pengguna', [PenggunaController::class, 'simpanPengguna'])->name('pengguna.simpan-pengguna');
-    Route::delete('/hapus-pengguna/{user}', [PenggunaController::class, 'hapusPengguna'])->name('pengguna.hapus-pengguna');
-    Route::get('/edit-pengguna/{user}', [PenggunaController::class, 'editPengguna'])->name('pengguna.edit-pengguna');
-    Route::put('/update-pengguna/{user}', [PenggunaController::class, 'updatePengguna'])->name('pengguna.update-pengguna');
+    Route::get('/', [UserController::class, 'index'])->name('user');
+    Route::get('/tambah-pengguna', [UserController::class, 'create'])->name('user.create');
+    Route::post('/simpan-pengguna', [UserController::class, 'store'])->name('user.store');
+    Route::delete('/hapus/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::get('/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/update/{user}', [UserController::class, 'update'])->name('user.update');
 });
 
-// Menu Organisasi
-Route::prefix('organisasi')->middleware('auth')->group(function () {
+// Menu Pengaturan Bagian
+Route::prefix('bagian')->middleware('auth')->group(function () {
+    Route::get('/', [SectionController::class, 'index'])->name('section');
+    Route::get('/tambah-bagian', [SectionController::class, 'create'])->name('section.create');
+    Route::post('/simpan-bagian', [SectionController::class, 'store'])->name('section.store');
+    Route::get('/edit/{section}', [SectionController::class, 'edit'])->name('section.edit');
+    Route::put('/update/{section}', [SectionController::class, 'update'])->name('section.update');
+    Route::delete('/hapus/{section}', [SectionController::class, 'destroy'])->name('section.destroy');
+});
 
-    // Menu Bagian
-    Route::get('/bagian', [OrganisasiController::class, 'bagian'])->name('organisasi.bagian');
-    Route::prefix('bagian')->group(function () {
-        Route::get('/tambah-bagian', [OrganisasiController::class, 'tambahBagian'])->name('organisasi.tambah-bagian');
-        Route::post('/simpan-bagian', [OrganisasiController::class, 'simpanBagian'])->name('organisasi.simpan-bagian');
-        Route::delete('/hapus-bagian/{section}', [OrganisasiController::class, 'hapusBagian'])->name('organisasi.hapus-bagian');
-        Route::get('/edit-bagian/{section}', [OrganisasiController::class, 'editBagian'])->name('organisasi.edit-bagian');
-        Route::put('/update-bagian/{section}', [OrganisasiController::class, 'updateBagian'])->name('organisasi.update-bagian');
-    });
+// Menu Pengaturan Jabatan
+Route::prefix('jabatan')->middleware('auth')->group(function () {
+    Route::get('/', [PositionController::class, 'index'])->name('position');
+    Route::get('/tambah-jabatan', [PositionController::class, 'create'])->name('position.create');
+    Route::post('/simpan-jabatan', [PositionController::class, 'store'])->name('position.store');
+    Route::get('/edit/{position}', [PositionController::class, 'edit'])->name('position.edit');
+    Route::put('/update/{position}', [PositionController::class, 'update'])->name('position.update');
+    Route::delete('/hapus/{position}', [PositionController::class, 'destroy'])->name('position.destroy');
+});
 
-    // Menu Jabatan
-    Route::get('/jabatan', [OrganisasiController::class, 'jabatan'])->name('organisasi.jabatan');
-    Route::prefix('jabatan')->group(function () {
-        Route::get('/tambah-jabatan', [OrganisasiController::class, 'tambahJabatan'])->name('organisasi.tambah-jabatan');
-        Route::post('/simpan-jabatan', [OrganisasiController::class, 'simpanJabatan'])->name('organisasi.simpan-jabatan');
-        Route::delete('/hapus-jabatan/{position}', [OrganisasiController::class, 'hapusJabatan'])->name('organisasi.hapus-jabatan');
-        Route::get('/edit-jabatan/{position}', [OrganisasiController::class, 'editJabatan'])->name('organisasi.edit-jabatan');
-        Route::put('/update-jabatan/{position}', [OrganisasiController::class, 'updateJabatan'])->name('organisasi.update-jabatan');
-    });
-
-    // Menu Peran
-    Route::get('/peran', [OrganisasiController::class, 'peran'])->name('organisasi.peran');
-    Route::prefix('peran')->group(function () {
-        Route::get('/tambah-peran', [OrganisasiController::class, 'tambahPeran'])->name('organisasi.tambah-peran');
-        Route::post('/simpan-peran', [OrganisasiController::class, 'simpanPeran'])->name('organisasi.simpan-peran');
-        Route::delete('/hapus-peran/{role}', [OrganisasiController::class, 'hapusPeran'])->name('organisasi.hapus-peran');
-        Route::get('/edit-peran/{role}', [OrganisasiController::class, 'editPeran'])->name('organisasi.edit-peran');
-        Route::put('/update-peran/{role}', [OrganisasiController::class, 'updatePeran'])->name('organisasi.update-peran');
-    });
-})->middleware('auth');
+// Menu Pengaturan Peran
+Route::prefix('peran')->middleware('auth')->group(function () {
+    Route::get('/', [RoleController::class, 'index'])->name('role');
+    Route::get('/tambah-peran', [RoleController::class, 'create'])->name('role.create');
+    Route::post('/simpan-peran', [RoleController::class, 'store'])->name('role.store');
+    Route::get('/edit/{role}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::put('/update/{role}', [RoleController::class, 'update'])->name('role.update');
+    Route::delete('/hapus/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
+});

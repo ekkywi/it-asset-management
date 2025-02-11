@@ -9,8 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-building"></i> Oganisasi</div>
-                <div class="breadcrumb-item active"><i class="fas fa-briefcase"></i> Jabatan</div>
+                <div class="breadcrumb-item active"><a href="{{ route("position") }}"><i class="fas fa-briefcase"></i> Jabatan</a></div>
             </div>
         </div>
 
@@ -61,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ route("organisasi.tambah-jabatan") }}"><i class="fas fa-plus"></i> Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("position.create") }}"><i class="fas fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
 
@@ -85,8 +84,8 @@
                                 </td>
                                 <td>{{ $position->description }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-jabatan", $position->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                    <form action="{{ route("organisasi.hapus-jabatan", $position->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="{{ route("position.edit", $position->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                    <form action="{{ route("position.destroy", $position->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
                                         <button class="btn btn-danger btnHapus" data-id="{{ $position->id }}" type="button"><i class="fas fa-trash"></i> Hapus</button>
@@ -137,7 +136,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `{{ route("organisasi.hapus-jabatan", "") }}/${id}`;
+                    formHapus.action = `{{ route("position.destroy", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });

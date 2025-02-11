@@ -9,7 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><a href="{{ route("pengguna") }}"><i class="fas fa-users"></i> Pengguna</a></div>
+                <div class="breadcrumb-item"><a href="{{ route("user") }}"><i class="fas fa-users"></i> Pengguna</a></div>
                 <div class="breadcrumb-item active"><i class="fas fa-edit"></i> Edit Pengguna</div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route("pengguna.update-pengguna", $user->id) }}" method="POST">
+                    <form action="{{ route("user.update", $user->id) }}" method="POST">
                         @csrf
                         @method("PUT")
 
@@ -105,7 +105,7 @@
 
                         <div class="form-group">
                             <div class="text-right">
-                                <button class="btn btn-danger" onclick="window.location='{{ route("pengguna") }}'" type="button">Batal</button>
+                                <button class="btn btn-danger" onclick="window.location='{{ route("user") }}'" type="button">Batal</button>
                                 <button class="btn btn-primary" type="submit">Simpan</button>
                             </div>
                         </div>

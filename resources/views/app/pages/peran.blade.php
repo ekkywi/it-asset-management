@@ -9,8 +9,7 @@
         <div class="section-header">
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item"><a href="{{ route("dashboard") }}"><i class="fas fa-laptop"></i> IT Asset Management</a></div>
-                <div class="breadcrumb-item"><i class="fas fa-building"></i> Oganisasi</div>
-                <div class="breadcrumb-item active"><i class="fas fa-people-group"></i> Peran</div>
+                <div class="breadcrumb-item active"><a href="{{ route("role") }}"><i class="fas fa-people-group"></i> Peran</a></div>
             </div>
         </div>
 
@@ -61,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 text-right">
-                    <a class="btn btn-primary" href="{{ route("organisasi.tambah-peran") }}"><i class="fas fa-plus"></i> Tambah Data</a>
+                    <a class="btn btn-primary" href="{{ route("role.create") }}"><i class="fas fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
 
@@ -85,8 +84,8 @@
                                 </td>
                                 <td>{{ $role->description }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route("organisasi.edit-peran", $role->id) }}"><i class="fas fa-edit"></i> Edit</a>
-                                    <form action="{{ route("organisasi.hapus-peran", $role->id) }}" method="POST" style="display:inline;">
+                                    <a class="btn btn-primary" href="{{ route("role.edit", $role->id) }}"><i class="fas fa-edit"></i> Edit</a>
+                                    <form action="{{ route("role.destroy", $role->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method("DELETE")
                                         <button class="btn btn-danger btnHapus" data-id="{{ $role->id }}" type="button"><i class="fas fa-trash"></i> Hapus</button>
@@ -137,7 +136,7 @@
             btnHapus.forEach(button => {
                 button.addEventListener("click", function() {
                     const id = this.getAttribute("data-id");
-                    formHapus.action = `{{ route("organisasi.hapus-peran", "") }}/${id}`;
+                    formHapus.action = `{{ route("role.destroy", "") }}/${id}`;
                     $("#modalHapus").modal("show");
                 });
             });

@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers\App;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\Models\User;
 use App\Models\Section;
 use App\Models\Position;
 use App\Models\Role;
-use App\Models\User;
 
-use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-class PenggunaController extends Controller
+class UserController extends Controller
 {
-
     // View Halaman Pengguna
-    public function pengguna()
+    public function index()
     {
         $users = User::all();
 
@@ -23,7 +21,7 @@ class PenggunaController extends Controller
     }
 
     // View Halaman Tambah Pengguna
-    public function tambahPengguna()
+    public function create()
     {
         $sections = Section::all();
         $positions = Position::all();
@@ -33,7 +31,7 @@ class PenggunaController extends Controller
     }
 
     // Simpan Data Pengguna
-    public function simpanPengguna(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -47,19 +45,19 @@ class PenggunaController extends Controller
 
         User::create($request->all());
 
-        return redirect()->route('pengguna')->with('success', 'Pengguna berhasil ditambahkan.');
+        return redirect()->route('user')->with('success', 'Pengguna berhasil ditambahkan.');
     }
 
     // Hapus Data Pengguna
-    public function hapusPengguna(User $user)
+    public function destroy(User $user)
     {
         $user->delete();
 
-        return redirect()->route('pengguna')->with('success', 'Pengguna berhasil dihapus.');
+        return redirect()->route('user')->with('success', 'Pengguna berhasil dihapus.');
     }
 
     // View Halaman Edit Pengguna
-    public function editPengguna(User $user)
+    public function edit(User $user)
     {
         $sections = Section::all();
         $positions = Position::all();
@@ -69,7 +67,7 @@ class PenggunaController extends Controller
     }
 
     // Update Data Pengguna
-    public function updatePengguna(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -83,6 +81,6 @@ class PenggunaController extends Controller
 
         $user->update($request->all());
 
-        return redirect()->route('pengguna')->with('info', 'Pengguna berhasil diupdate.');
+        return redirect()->route('user')->with('info', 'Pengguna berhasil diupdate.');
     }
 }
